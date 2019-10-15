@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-compile 'com.ansen.shape:shape:1.0.0'
+implementation 'com.ansen.shape:shape:1.0.0'
 ```
 
 ### 效果图
