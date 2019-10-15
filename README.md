@@ -3,5 +3,8 @@
 
 ### 在线依赖
 ```
-compile 'com.ansen.shape:shape:1.0.0'
+implementation 'com.ansen.shape:shape:1.0.1'
 ```
+
+### 效果图
+![shape](https://github.com/ansen666/TestShape/blob/master/shape.jpg?raw=true)
