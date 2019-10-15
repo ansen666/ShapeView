@@ -1,8 +1,10 @@
 package com.ansen.shape.util;
 
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.R;
@@ -10,15 +12,16 @@ import com.ansen.shape.R;
 public class ShapeUtil {
     public static void setBackground(View view,AttributeSet attrs){
         TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.ShapeView);
-        int solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color,-1);
+        int solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
+//        Log.i("ansen","solidColor:"+solidColor);
 
-        int startColor=typedArray.getColor(R.styleable.ShapeView_start_color,-1);
-        int centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,-1);
-        int endColor=typedArray.getColor(R.styleable.ShapeView_end_color,-1);
+        int startColor=typedArray.getColor(R.styleable.ShapeView_start_color,Color.TRANSPARENT);
+        int centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
+        int endColor=typedArray.getColor(R.styleable.ShapeView_end_color,Color.TRANSPARENT);
 
         int orientation=typedArray.getInt(R.styleable.ShapeView_orientation,1);//默认从左到右
 
-        int strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,-1);
+        int strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
         float strokeWidth=typedArray.getDimension(R.styleable.ShapeView_stroke_width,0.0F);
 
         float cornersRadius=typedArray.getDimension(R.styleable.ShapeView_corners_radius, 0.0F);
@@ -33,19 +36,19 @@ public class ShapeUtil {
 
         GradientDrawable gradientDrawable=new GradientDrawable();
 
-        if(startColor!=-1&&endColor!=-1){//开始颜色跟结束颜色都不为空 设置背景渐变色
-            if(centerColor!=-1){
+        if(startColor!=0&&endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
+            if(centerColor!=0){
                 gradientDrawable.setColors(new int[]{startColor,centerColor,endColor});
             }else{
                 gradientDrawable.setColors(new int[]{startColor,endColor});
             }
 
             gradientDrawable.setOrientation(ShapeUtil.getOrientation(orientation));//设置渐变方向
-        }else if(solidColor!=-1){//设置背景颜色
+        }else if(solidColor!=0){//设置背景颜色
             gradientDrawable.setColor(solidColor);
         }
 
-        if(strokeColor!=-1&&strokeWidth!=0){//设置边框
+        if(strokeColor!=0&&strokeWidth!=0){//设置边框
             gradientDrawable.setStroke((int)strokeWidth,strokeColor);
         }
 

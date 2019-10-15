@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     android:orientation="vertical">
 
     <com.ansen.shape.AnsenTextView
@@ -73,4 +74,23 @@
         app:start_color="#5BC9FF"
         app:center_color="#FF00FF"
         app:end_color="#4669F6"/>
+
+    <com.ansen.shape.AnsenTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Hello World!"
+        android:textColor="#333333"
+        app:solid_color="#FFffFF" />
+    
+    <com.ansen.shape.AnsenEditText
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码"
+        android:paddingLeft="10dp"
+        app:solid_color="#f5f5f5"
+        app:corners_radius="5dp" />
 </LinearLayout>
