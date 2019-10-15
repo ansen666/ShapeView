@@ -23,5 +23,20 @@ app:center_color="#FF00FF" 填充渐变色中间
 app:end_color="#4669F6" 填充渐变色结束
 ```
 
+### 案例
+```
+<com.ansen.shape.AnsenTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Hello World!"
+        android:textColor="#FFFFFF"
+        app:corners_radius="5dp"
+        app:solid_color="#FF00FF"
+        app:stroke_color="#00ff00"
+        app:stroke_width="2dp" />
+```
+
 ### 效果图
 ![shape](https://github.com/ansen666/TestShape/blob/master/shape.jpg?raw=true)
