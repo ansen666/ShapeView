@@ -24,6 +24,12 @@ app:end_color="#4669F6" 填充渐变色结束
 ```
 
 ### 案例
+首先需要在xml根布局控件增加一个属性:
+```
+xmlns:app="http://schemas.android.com/apk/res-auto"
+```
+
+如何使用?
 ```
 <com.ansen.shape.AnsenTextView
         android:layout_width="wrap_content"
