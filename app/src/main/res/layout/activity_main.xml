@@ -47,7 +47,7 @@
         android:padding="10dp"
         android:text="Hello World!"
         android:textColor="#FFFFFF"
-        app:shape="oval"
+        app:shape_view="oval"
         app:solid_color="#FF00FF"/>
 
     <com.ansen.shape.AnsenTextView

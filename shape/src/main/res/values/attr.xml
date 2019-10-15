@@ -17,7 +17,7 @@
         <attr name="stroke_color" format="color"/><!--边框颜色-->
         <attr name="stroke_width" format="dimension"/><!--边框宽度-->
 
-        <attr name="shape">
+        <attr name="shape_view">
             <enum name="rectangle" value="0" /><!-- 矩形 -->
             <enum name="oval" value="1" /><!-- 椭圆形 -->
             <enum name="line" value="2" /><!-- 一条线 -->

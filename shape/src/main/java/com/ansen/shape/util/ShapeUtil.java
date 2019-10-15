@@ -27,7 +27,7 @@ public class ShapeUtil {
         float bottomLeftRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_left_radius, 0.0F);
         float bottomRightRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
 
-        int shape=typedArray.getInt(R.styleable.ShapeView_shape,0);
+        int shape=typedArray.getInt(R.styleable.ShapeView_shape_view,0);
 
         typedArray.recycle();
 
