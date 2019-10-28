@@ -6,11 +6,15 @@ package com.ansen.shape.module;
  * @create time 2019-10-28
  */
 public class ShapeAttribute {
+    public ShapeAttribute(){
+
+    }
+
     public int solidColor;
     public int startColor;
     public int centerColor;
     public int endColor;
-    public int orientation;
+    public int colorOrientation;
     public int strokeColor;
     public float strokeWidth;
     public float cornersRadius;

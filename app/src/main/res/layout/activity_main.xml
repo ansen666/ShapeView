@@ -13,9 +13,9 @@
         <com.ansen.shape.AnsenTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:padding="10dp"
-            android:text="Hello World!"
+            android:text="边框+弧度+填充色"
             android:textColor="#FFFFFF"
             app:corners_radius="5dp"
             app:solid_color="#FF00FF"
@@ -25,9 +25,9 @@
         <com.ansen.shape.AnsenTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:padding="10dp"
-            android:text="Hello World!"
+            android:text="左上+右上弧度"
             android:textColor="#FFFFFF"
             app:solid_color="#00FFFF"
             app:top_left_radius="15dp"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:text="Hello World!"
+            android:text="左下+右下弧度"
             android:textColor="#FFFFFF"
             app:bottom_left_radius="15dp"
             app:bottom_right_radius="15dp"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:text="Hello World!"
+            android:text="椭圆形"
             android:textColor="#FFFFFF"
             app:shape_view="oval"
             app:solid_color="#FF00FF"/>
@@ -65,38 +65,43 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
-            android:text="Hello World!"
+            android:text="颜色从上到下"
             android:textColor="#FFFFFF"
-            app:orientation="top_bottom"
+            app:color_orientation="top_bottom"
             app:start_color="#5BC9FF"
             app:center_color="#FF00FF"
             app:end_color="#4669F6"/>
 
-        <com.ansen.shape.AnsenFrameLayout
+        <com.ansen.shape.AnsenTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
+            android:text="颜色从左到右"
             android:textColor="#FFFFFF"
-            app:orientation="top_bottom"
+            app:color_orientation="left_right"
             app:corners_radius="5dp"
             app:start_color="#5BC9FF"
             app:center_color="#FF00FF"
             app:end_color="#4669F6"/>
     </LinearLayout>
 
-    <LinearLayout
+    <com.ansen.shape.AnsenLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:solid_color="#666666"
+        app:corners_radius="15dp"
+        android:layout_margin="5dp"
+        android:padding="5dp"
         android:orientation="horizontal">
 
         <com.ansen.shape.AnsenView
             android:layout_marginLeft="10dp"
-            android:layout_width="10dp"
+            android:layout_width="30dp"
             android:layout_height="41dp"
             app:bottom_right_radius="50dp"
             app:end_color="#F64848"
-            app:orientation="top_bottom"
+            app:color_orientation="top_bottom"
             app:start_color="#FF8B59"
             app:top_right_radius="50dp"/>
 
@@ -106,15 +111,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="5dp"
-            android:text="点击我动态改变View Shape属性"
+            android:text="点击我动态改变View Shape属性还有渐变方向"
             app:corners_radius="15dp"
             android:textColor="#FFFFFF"
-            app:orientation="top_bottom"
+            app:color_orientation="top_bottom"
             app:start_color="#FF8B5A"
             app:end_color="#F64848"/>
-    </LinearLayout>
+    </com.ansen.shape.AnsenLinearLayout>
 
-    
     <com.ansen.shape.AnsenEditText
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

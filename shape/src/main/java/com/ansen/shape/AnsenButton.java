@@ -1,6 +1,7 @@
 package com.ansen.shape;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -52,8 +53,8 @@ public class AnsenButton extends AppCompatButton implements IAnsenShapeView{
     }
 
     @Override
-    public void setOrientation(int orientation) {
-        shapeAttribute.orientation=orientation;
+    public void setColorOrientation(GradientDrawable.Orientation orientation) {
+        shapeAttribute.colorOrientation=ShapeUtil.getOrientation(orientation);
     }
 
     @Override

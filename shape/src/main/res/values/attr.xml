@@ -24,7 +24,7 @@
             <enum name="ring" value="3" /><!-- 环形 -->
         </attr>
 
-        <attr name="orientation"><!--背景颜色渐变色方向-->
+        <attr name="color_orientation"><!--背景颜色渐变色方向-->
             <enum name="left_right" value="1"/>
             <enum name="right_left" value="2"/>
             <enum name="top_bottom" value="3"/>

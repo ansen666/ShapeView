@@ -13,6 +13,7 @@ import com.ansen.shape.module.ShapeAttribute;
 public class ShapeUtil{
     public static ShapeAttribute getShapeAttribute(Context context,AttributeSet attrs){
         ShapeAttribute shapeAttribute=new ShapeAttribute();
+
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShapeView);
         shapeAttribute.solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
 
@@ -20,7 +21,7 @@ public class ShapeUtil{
         shapeAttribute.centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
         shapeAttribute.endColor=typedArray.getColor(R.styleable.ShapeView_end_color,Color.TRANSPARENT);
 
-        shapeAttribute.orientation=typedArray.getInt(R.styleable.ShapeView_orientation,1);//默认从左到右
+        shapeAttribute.colorOrientation=typedArray.getInt(R.styleable.ShapeView_color_orientation,1);//默认从左到右
 
         shapeAttribute.strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
         shapeAttribute.strokeWidth=typedArray.getDimension(R.styleable.ShapeView_stroke_width,0.0F);
@@ -51,7 +52,7 @@ public class ShapeUtil{
                 gradientDrawable.setColors(new int[]{shapeAttribute.startColor,shapeAttribute.endColor});
             }
 
-            gradientDrawable.setOrientation(ShapeUtil.getOrientation(shapeAttribute.orientation));//设置渐变方向
+            gradientDrawable.setOrientation(getOrientation(shapeAttribute.colorOrientation));//设置颜色渐变方向
         }else if(shapeAttribute.solidColor!=0){//设置背景颜色
             gradientDrawable.setColor(shapeAttribute.solidColor);
         }
@@ -95,5 +96,26 @@ public class ShapeUtil{
             return GradientDrawable.Orientation.TL_BR;
         }
         return GradientDrawable.Orientation.LEFT_RIGHT;
+    }
+
+    public static int getOrientation(GradientDrawable.Orientation orientation){
+        if(orientation==GradientDrawable.Orientation.LEFT_RIGHT){
+            return 1;
+        }else if(orientation==GradientDrawable.Orientation.RIGHT_LEFT){
+            return 2;
+        }else if(orientation==GradientDrawable.Orientation.TOP_BOTTOM){
+            return 3;
+        }else if(orientation==GradientDrawable.Orientation.BOTTOM_TOP){
+            return 4;
+        }else if(orientation==GradientDrawable.Orientation.TR_BL){
+            return 5;
+        }else if(orientation==GradientDrawable.Orientation.BR_TL){
+            return 6;
+        }else if(orientation==GradientDrawable.Orientation.BL_TR){
+            return 7;
+        }else if(orientation==GradientDrawable.Orientation.TL_BR){
+            return 8;
+        }
+        return 1;
     }
 }

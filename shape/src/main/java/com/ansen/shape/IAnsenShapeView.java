@@ -1,5 +1,7 @@
 package com.ansen.shape;
 
+import android.graphics.drawable.GradientDrawable;
+
 /**
  * @author Ansen
  * @create time 2019-10-28
@@ -18,7 +20,11 @@ public interface IAnsenShapeView {
 
     void setEndColor(int endColor);
 
-    void setOrientation(int orientation);
+    /**
+     * 对应系统的枚举类型 Orientation.TOP_BOTTOM、Orientation.BOTTOM_TOP
+     * @param orientation
+     */
+    void setColorOrientation(GradientDrawable.Orientation orientation);
 
     void setStrokeColor(int strokeColor);
 

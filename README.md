@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.0.4'
+implementation 'com.ansen.shape:shape:1.0.5'
 ```
 
 ### 属性使用
@@ -17,7 +17,7 @@ app:top_right_radius="15dp" 右上弧度
 app:bottom_left_radius="15dp" 左下弧度
 app:bottom_right_radius="15dp" 右下弧度
 app:shape_view="oval" View形状
-app:orientation="top_bottom" 背景颜色渐变色方向
+app:color_orientation="top_bottom" 背景颜色渐变色方向
 app:start_color="#5BC9FF" 填充渐变色开始
 app:center_color="#FF00FF" 填充渐变色中间
 app:end_color="#4669F6" 填充渐变色结束
@@ -43,6 +43,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         app:stroke_color="#00ff00"
         app:stroke_width="2dp" />
 ```
+
+
 
 ### 效果图
 ![shape](https://github.com/ansen666/TestShape/blob/master/shape.jpg?raw=true)
