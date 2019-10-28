@@ -85,14 +85,12 @@
             app:end_color="#4669F6"/>
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <com.ansen.shape.AnsenView
-            android:id="@+id/view_line"
             android:layout_marginLeft="10dp"
             android:layout_width="10dp"
             android:layout_height="41dp"
@@ -108,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="5dp"
-            android:text="动态改变左边View Shape"
+            android:text="点击我动态改变View Shape属性"
             app:corners_radius="15dp"
             android:textColor="#FFFFFF"
             app:orientation="top_bottom"
