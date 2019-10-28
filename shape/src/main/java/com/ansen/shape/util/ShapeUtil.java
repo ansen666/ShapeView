@@ -1,69 +1,82 @@
 package com.ansen.shape.util;
 
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.R;
+import com.ansen.shape.module.ShapeAttribute;
 
-public class ShapeUtil {
-    public static void setBackground(View view,AttributeSet attrs){
-        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.ShapeView);
-        int solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
-//        Log.i("ansen","solidColor:"+solidColor);
+public class ShapeUtil{
+    public static ShapeAttribute getShapeAttribute(Context context,AttributeSet attrs){
+        ShapeAttribute shapeAttribute=new ShapeAttribute();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShapeView);
+        shapeAttribute.solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
 
-        int startColor=typedArray.getColor(R.styleable.ShapeView_start_color,Color.TRANSPARENT);
-        int centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
-        int endColor=typedArray.getColor(R.styleable.ShapeView_end_color,Color.TRANSPARENT);
+        shapeAttribute.startColor=typedArray.getColor(R.styleable.ShapeView_start_color,Color.TRANSPARENT);
+        shapeAttribute.centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
+        shapeAttribute.endColor=typedArray.getColor(R.styleable.ShapeView_end_color,Color.TRANSPARENT);
 
-        int orientation=typedArray.getInt(R.styleable.ShapeView_orientation,1);//默认从左到右
+        shapeAttribute.orientation=typedArray.getInt(R.styleable.ShapeView_orientation,1);//默认从左到右
 
-        int strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
-        float strokeWidth=typedArray.getDimension(R.styleable.ShapeView_stroke_width,0.0F);
+        shapeAttribute.strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
+        shapeAttribute.strokeWidth=typedArray.getDimension(R.styleable.ShapeView_stroke_width,0.0F);
 
-        float cornersRadius=typedArray.getDimension(R.styleable.ShapeView_corners_radius, 0.0F);
-        float topLeftRadius=typedArray.getDimension(R.styleable.ShapeView_top_left_radius, 0.0F);
-        float topRightRadius=typedArray.getDimension(R.styleable.ShapeView_top_right_radius, 0.0F);
-        float bottomLeftRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_left_radius, 0.0F);
-        float bottomRightRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
+        shapeAttribute.cornersRadius=typedArray.getDimension(R.styleable.ShapeView_corners_radius, 0.0F);
+        shapeAttribute.topLeftRadius=typedArray.getDimension(R.styleable.ShapeView_top_left_radius, 0.0F);
+        shapeAttribute.topRightRadius=typedArray.getDimension(R.styleable.ShapeView_top_right_radius, 0.0F);
+        shapeAttribute.bottomLeftRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_left_radius, 0.0F);
+        shapeAttribute.bottomRightRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
 
-        int shape=typedArray.getInt(R.styleable.ShapeView_shape_view,0);
+        shapeAttribute.shape=typedArray.getInt(R.styleable.ShapeView_shape_view,0);
 
         typedArray.recycle();
+        return shapeAttribute;
+    }
+
+    public static void setBackground(View view,ShapeAttribute shapeAttribute){
+        if(view==null||shapeAttribute==null){
+            return ;
+        }
 
         GradientDrawable gradientDrawable=new GradientDrawable();
-
-        if(startColor!=0&&endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
-            if(centerColor!=0){
-                gradientDrawable.setColors(new int[]{startColor,centerColor,endColor});
+        if(shapeAttribute.startColor!=0&&shapeAttribute.endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
+            if(shapeAttribute.centerColor!=0){
+                gradientDrawable.setColors(new int[]{shapeAttribute.startColor,
+                        shapeAttribute.centerColor,shapeAttribute.endColor});
             }else{
-                gradientDrawable.setColors(new int[]{startColor,endColor});
+                gradientDrawable.setColors(new int[]{shapeAttribute.startColor,shapeAttribute.endColor});
             }
 
-            gradientDrawable.setOrientation(ShapeUtil.getOrientation(orientation));//设置渐变方向
-        }else if(solidColor!=0){//设置背景颜色
-            gradientDrawable.setColor(solidColor);
+            gradientDrawable.setOrientation(ShapeUtil.getOrientation(shapeAttribute.orientation));//设置渐变方向
+        }else if(shapeAttribute.solidColor!=0){//设置背景颜色
+            gradientDrawable.setColor(shapeAttribute.solidColor);
         }
 
-        if(strokeColor!=0&&strokeWidth!=0){//设置边框
-            gradientDrawable.setStroke((int)strokeWidth,strokeColor);
+        if(shapeAttribute.strokeColor!=0&&shapeAttribute.strokeWidth!=0){//设置边框
+            gradientDrawable.setStroke((int)shapeAttribute.strokeWidth,shapeAttribute.strokeColor);
         }
 
-        gradientDrawable.setShape(shape);//设置形状(矩形、椭圆形、一条线、环形)
+        gradientDrawable.setShape(shapeAttribute.shape);//设置形状(矩形、椭圆形、一条线、环形)
+
+        float topLeftRadius=shapeAttribute.topLeftRadius;
+        float topRightRadius=shapeAttribute.topRightRadius;
+        float bottomLeftRadius=shapeAttribute.bottomLeftRadius;
+        float bottomRightRadius=shapeAttribute.bottomRightRadius;
 
         if(topLeftRadius!=0||topRightRadius!=0||bottomLeftRadius!=0||bottomRightRadius!=0){//设置某个角弧度
             gradientDrawable.setCornerRadii(new float[]{topLeftRadius,topLeftRadius,topRightRadius,topRightRadius,
                     bottomRightRadius,bottomRightRadius,bottomLeftRadius,bottomLeftRadius});
-        }else if(cornersRadius>0){
-            gradientDrawable.setCornerRadius(cornersRadius);//设置弧度
+        }else if(shapeAttribute.cornersRadius>0){
+            gradientDrawable.setCornerRadius(shapeAttribute.cornersRadius);//设置弧度
         }
         view.setBackground(gradientDrawable);
     }
 
-    public static GradientDrawable.Orientation getOrientation(int orientation){
+    private static GradientDrawable.Orientation getOrientation(int orientation){
         if(orientation==1){
             return GradientDrawable.Orientation.LEFT_RIGHT;
         }else if(orientation==2){
