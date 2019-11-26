@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.AnsenFrameLayout;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AnsenTextView tvDynamicAlteration;
     private boolean change=false;
 
+    private AnsenTextView tvMale,tvWoman;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvDynamicAlteration=findViewById(R.id.tv_dynamic_alteration);
         tvDynamicAlteration.setOnClickListener(this);
 
+        tvMale=findViewById(R.id.tv_male);
+        tvMale.setSelected(true);//默认选中男
+        tvWoman=findViewById(R.id.tv_woman);
+
+        tvMale.setOnClickListener(this);
+        tvWoman.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             change=!change;
             tvDynamicAlteration.resetBackground();//设置了属性之后需要调用这个方法
+
+        }else if(v.getId()==R.id.tv_change_select){//改变选中效果
+            Log.i("ansen","点击之后");
+            ((AnsenTextView)v).setSelected(!v.isSelected(),true);
+        }else if(v.getId()==R.id.tv_one){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_male){//男选中
+            tvMale.setSelected(true);
+            tvWoman.setSelected(false);
+        }else if(v.getId()==R.id.tv_woman){//女选中
+            tvMale.setSelected(false);
+            tvWoman.setSelected(true);
         }
     }
 }

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.R;
@@ -15,16 +16,24 @@ public class ShapeUtil{
         ShapeAttribute shapeAttribute=new ShapeAttribute();
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShapeView);
+
         shapeAttribute.solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
+        shapeAttribute.selectSolidColor=typedArray.getColor(R.styleable.ShapeView_select_solid_color, Color.TRANSPARENT);
 
         shapeAttribute.startColor=typedArray.getColor(R.styleable.ShapeView_start_color,Color.TRANSPARENT);
         shapeAttribute.centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
         shapeAttribute.endColor=typedArray.getColor(R.styleable.ShapeView_end_color,Color.TRANSPARENT);
 
+        shapeAttribute.selectStartColor=typedArray.getColor(R.styleable.ShapeView_select_start_color, Color.TRANSPARENT);
+        shapeAttribute.selectCenterColor=typedArray.getColor(R.styleable.ShapeView_select_center_color, Color.TRANSPARENT);
+        shapeAttribute.selectEndColor=typedArray.getColor(R.styleable.ShapeView_select_end_color, Color.TRANSPARENT);
+
         shapeAttribute.colorOrientation=typedArray.getInt(R.styleable.ShapeView_color_orientation,1);//默认从左到右
 
         shapeAttribute.strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
+        shapeAttribute.selectStrokeColor = typedArray.getColor(R.styleable.ShapeView_select_stroke_color,Color.TRANSPARENT);
         shapeAttribute.strokeWidth=typedArray.getDimension(R.styleable.ShapeView_stroke_width,0.0F);
+        shapeAttribute.selectStrokeWidth=typedArray.getDimension(R.styleable.ShapeView_select_stroke_width,0.0F);
 
         shapeAttribute.cornersRadius=typedArray.getDimension(R.styleable.ShapeView_corners_radius, 0.0F);
         shapeAttribute.topLeftRadius=typedArray.getDimension(R.styleable.ShapeView_top_left_radius, 0.0F);
@@ -33,6 +42,15 @@ public class ShapeUtil{
         shapeAttribute.bottomRightRadius=typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
 
         shapeAttribute.shape=typedArray.getInt(R.styleable.ShapeView_shape_view,0);
+
+        //TextView/EditView属性
+        shapeAttribute.textColor = typedArray.getColor(R.styleable.ShapeView_text_color,Color.TRANSPARENT);
+        shapeAttribute.selectTextColor = typedArray.getColor(R.styleable.ShapeView_select_text_color,Color.TRANSPARENT);
+        shapeAttribute.unselectDrawable=typedArray.getDrawable(R.styleable.ShapeView_unselect_drawable);
+        shapeAttribute.selectDrawable=typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
+        shapeAttribute.drawableDirection=typedArray.getInt(R.styleable.ShapeView_drawable_direction,0);//默认为0 显示左边
+
+        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
 
         typedArray.recycle();
         return shapeAttribute;
@@ -43,22 +61,36 @@ public class ShapeUtil{
             return ;
         }
 
+        shapeAttribute.selected=view.isSelected();
+
         GradientDrawable gradientDrawable=new GradientDrawable();
-        if(shapeAttribute.startColor!=0&&shapeAttribute.endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
-            if(shapeAttribute.centerColor!=0){
-                gradientDrawable.setColors(new int[]{shapeAttribute.startColor,
-                        shapeAttribute.centerColor,shapeAttribute.endColor});
+
+        int startColor=shapeAttribute.getStartColor();
+        int centerColor=shapeAttribute.getCenterColor();
+        int endColor=shapeAttribute.getEndColor();
+        int solidColor=shapeAttribute.getSolidColor();
+
+        Log.i("ansen","是否选中:"+shapeAttribute.selected+" startColor:"+startColor+" centerColor:"+centerColor+" solidColor:"+solidColor+" endColor:"+endColor);
+
+        if(startColor!=0&&endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
+            if(centerColor!=0){
+                gradientDrawable.setColors(new int[]{startColor,centerColor,endColor});
             }else{
-                gradientDrawable.setColors(new int[]{shapeAttribute.startColor,shapeAttribute.endColor});
+                gradientDrawable.setColors(new int[]{startColor,endColor});
             }
 
             gradientDrawable.setOrientation(getOrientation(shapeAttribute.colorOrientation));//设置颜色渐变方向
-        }else if(shapeAttribute.solidColor!=0){//设置背景颜色
-            gradientDrawable.setColor(shapeAttribute.solidColor);
+        }else if(solidColor!=0){//设置背景颜色
+            gradientDrawable.setColor(solidColor);
         }
 
-        if(shapeAttribute.strokeColor!=0&&shapeAttribute.strokeWidth!=0){//设置边框
-            gradientDrawable.setStroke((int)shapeAttribute.strokeWidth,shapeAttribute.strokeColor);
+        int strokeColor=shapeAttribute.getStrokeColor();
+        float strokeWidth=shapeAttribute.getStrokeWidth();
+
+        Log.i("ansen","strokeColor:"+strokeColor+" strokeWidth:"+strokeWidth);
+
+        if(strokeColor!=0&&strokeWidth!=0){//设置边框
+            gradientDrawable.setStroke((int)strokeWidth,strokeColor);
         }
 
         gradientDrawable.setShape(shapeAttribute.shape);//设置形状(矩形、椭圆形、一条线、环形)
