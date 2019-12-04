@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -106,6 +107,7 @@ public class ShapeUtil{
         }else if(shapeAttribute.cornersRadius>0){
             gradientDrawable.setCornerRadius(shapeAttribute.cornersRadius);//设置弧度
         }
+
         view.setBackground(gradientDrawable);
     }
 

@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.tv_change_select){//改变选中效果
             Log.i("ansen","点击之后");
             ((AnsenTextView)v).setSelected(!v.isSelected(),true);
+        }else if(v.getId()==R.id.tv_change_select_two){
+            ((AnsenTextView)v).setSelected(!v.isSelected(),true);
         }else if(v.getId()==R.id.tv_one){
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_male){//男选中

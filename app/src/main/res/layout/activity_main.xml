@@ -168,7 +168,35 @@
             android:paddingBottom="10dp"
             android:onClick="onClick" />
 
+        <com.ansen.shape.AnsenTextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_change_select_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击我切换选中效果"
+            android:textColor="#FFFFFFFF"
 
+            app:unselect_drawable="@mipmap/icon_sex_select_male"
+            app:select_drawable="@mipmap/icon_sex_select_woman"
+            android:drawablePadding="10dp"
+
+            app:start_color="#FF88D9"
+            app:end_color="#B26BFF"
+            app:stroke_width="0dp"
+            app:text_color="#FFFFFFFF"
+
+            app:select_start_color="#EB89FF"
+            app:select_end_color="#FCCE5F"
+            app:select_text_color="#5B3B28"
+
+            app:corners_radius="30dp"
+            app:color_orientation="right_left"
+
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:onClick="onClick" />
     </LinearLayout>
 
     <View
@@ -221,7 +249,6 @@
             app:unselect_drawable="@mipmap/icon_sex_select_male"
             app:select_drawable="@mipmap/icon_sex_select_woman"
             android:onClick="onClick"
-
             app:text_color="#72C7F6"
             app:select_text_color="#EE398E"/>
     </LinearLayout>

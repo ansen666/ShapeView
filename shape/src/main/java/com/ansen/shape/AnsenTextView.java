@@ -141,13 +141,13 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
             // 这一步必须要做,否则不会显示.
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
 
-            if(shapeAttribute.drawableDirection== ShapeConstant.TextView.LEFT){
+            if(shapeAttribute.drawableDirection == ShapeConstant.TextView.LEFT){
                 setCompoundDrawables(drawable, null, null, null);
-            }else if(shapeAttribute.drawableDirection== ShapeConstant.TextView.TOP){
+            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.TOP){
                 setCompoundDrawables(null, drawable, null, null);
-            }else if(shapeAttribute.drawableDirection== ShapeConstant.TextView.RIGHT){
+            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.RIGHT){
                 setCompoundDrawables(null, null, drawable, null);
-            }else if(shapeAttribute.drawableDirection== ShapeConstant.TextView.BOTTOM){
+            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.BOTTOM){
                 setCompoundDrawables(null, null, null, drawable);
             }
         }
