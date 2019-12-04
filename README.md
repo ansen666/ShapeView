@@ -68,4 +68,4 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
 ### 效果图
-![shape](https://github.com/ansen666/TestShape/blob/master/shape.jpg?raw=true)
+![shape](https://github.com/ansen666/TestShape/master/shape.jpg?raw=true)
