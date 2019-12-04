@@ -38,8 +38,8 @@ app:select_end_color="#FCCE5F" 渐变色选中结束色
 app:text_color="#FFFFFFFF" 文本未选中颜色
 app:select_text_color="#BBBBBB" 文本选中颜色
 
-app:unselect_drawable="@mipmap/icon_sex_select_male" 图片选中
-app:select_drawable="@mipmap/icon_sex_select_woman" 图片未选中
+app:unselect_drawable="@mipmap/icon_sex_select_male" 图片未选中
+app:select_drawable="@mipmap/icon_sex_select_woman" 图片选中
 app:drawable_direction="right" 图片显示TextView方向，left：左边 top：上面 right：右边 bottom：底部
 
 ```
