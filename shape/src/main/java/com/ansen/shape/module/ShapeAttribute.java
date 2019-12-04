@@ -24,6 +24,8 @@ public class ShapeAttribute {
     public int selectCenterColor;
     public int selectEndColor;
 
+    public int pressedSolidColor;//按下填充色
+
     public int colorOrientation;//颜色渐变方向
 
     public int strokeColor;//边框
@@ -101,5 +103,9 @@ public class ShapeAttribute {
             return selectDrawable;
         }
         return unselectDrawable;
+    }
+
+    public int getPressedSolidColor() {
+        return pressedSolidColor;
     }
 }

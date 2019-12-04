@@ -3,6 +3,7 @@ package com.ansen.shape.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
@@ -20,6 +21,7 @@ public class ShapeUtil{
 
         shapeAttribute.solidColor=typedArray.getColor(R.styleable.ShapeView_solid_color, Color.TRANSPARENT);
         shapeAttribute.selectSolidColor=typedArray.getColor(R.styleable.ShapeView_select_solid_color, Color.TRANSPARENT);
+        shapeAttribute.pressedSolidColor=typedArray.getColor(R.styleable.ShapeView_pressed_solid_color, Color.TRANSPARENT);
 
         shapeAttribute.startColor=typedArray.getColor(R.styleable.ShapeView_start_color,Color.TRANSPARENT);
         shapeAttribute.centerColor=typedArray.getColor(R.styleable.ShapeView_center_color,Color.TRANSPARENT);
@@ -64,11 +66,37 @@ public class ShapeUtil{
 
         shapeAttribute.selected=view.isSelected();
 
+        int pressedSolidColor=shapeAttribute.getPressedSolidColor();
+        if(pressedSolidColor!=0){//有按下颜色
+//            Log.i("ansen","pressedSolidColor:"+pressedSolidColor);
+            StateListDrawable sb = new StateListDrawable();
+
+            GradientDrawable normalDrawable=getBaseGradientDrawable(shapeAttribute);
+
+            GradientDrawable pressedDrawable=getBaseGradientDrawable(shapeAttribute);
+            pressedDrawable.setColor(pressedSolidColor);
+
+            //注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
+            //所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
+            sb.addState(new int[]{android.R.attr.state_pressed},pressedDrawable);
+            //没有任何状态时显示的图片，就设置空集合，默认状态
+            sb.addState(new int[]{},normalDrawable);
+
+            view.setBackground(sb);
+        }else{
+            GradientDrawable normal=getBaseGradientDrawable(shapeAttribute);
+            view.setBackground(normal);
+        }
+    }
+
+
+    private static GradientDrawable getBaseGradientDrawable(ShapeAttribute shapeAttribute){
         GradientDrawable gradientDrawable=new GradientDrawable();
 
         int startColor=shapeAttribute.getStartColor();
         int centerColor=shapeAttribute.getCenterColor();
         int endColor=shapeAttribute.getEndColor();
+
         int solidColor=shapeAttribute.getSolidColor();
 
         Log.i("ansen","是否选中:"+shapeAttribute.selected+" startColor:"+startColor+" centerColor:"+centerColor+" solidColor:"+solidColor+" endColor:"+endColor);
@@ -107,8 +135,7 @@ public class ShapeUtil{
         }else if(shapeAttribute.cornersRadius>0){
             gradientDrawable.setCornerRadius(shapeAttribute.cornersRadius);//设置弧度
         }
-
-        view.setBackground(gradientDrawable);
+        return gradientDrawable;
     }
 
     private static GradientDrawable.Orientation getOrientation(int orientation){

@@ -4,6 +4,7 @@
         <!--填充颜色-->
         <attr name="solid_color" format="color"/>
         <attr name="select_solid_color" format="color"/>
+        <attr name="pressed_solid_color" format="color"/>
 
         <attr name="start_color" format="color"/><!--填充渐变色开始-->
         <attr name="center_color" format="color"/><!--填充渐变色中间-->

@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ansen.shape.AnsenFrameLayout;
 import com.ansen.shape.AnsenTextView;
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.tv_woman){//女选中
             tvMale.setSelected(false);
             tvWoman.setSelected(true);
+        }else if(v.getId()==R.id.ll_item){
+            Toast.makeText(this,"行点击",Toast.LENGTH_SHORT).show();
         }
     }
 }

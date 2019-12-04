@@ -10,6 +10,7 @@ implementation 'com.ansen.shape:shape:1.0.6'
 ```
 app:solid_color="#FF00FF" 填充颜色
 app:select_solid_color="#FFFFFFFF" 选中填充颜色
+app:pressed_solid_color="#FFDEE0E2" 按压填充颜色
 
 app:corners_radius="5dp"  弧度
 

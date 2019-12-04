@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7F7F7"
     android:orientation="vertical">
 
     <LinearLayout
@@ -254,9 +255,38 @@
     </LinearLayout>
 
     <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:background="#1D1A2A" />
+
+<!--    com.ansen.shape.Ansen-->
+    <com.ansen.shape.AnsenLinearLayout
+        android:id="@+id/ll_item"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        app:corners_radius="20dp"
+        app:solid_color="#ffffffff"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:pressed_solid_color="#FFDEE0E2"
+        android:orientation="vertical"
+        android:onClick="onClick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="点击我看按压效果"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.ansen.shape.AnsenLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="0.5dp"
         android:background="#1D1A2A" />
 </LinearLayout>
