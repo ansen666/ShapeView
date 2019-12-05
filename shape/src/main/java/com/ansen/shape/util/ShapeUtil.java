@@ -47,6 +47,9 @@ public class ShapeUtil{
         shapeAttribute.shape=typedArray.getInt(R.styleable.ShapeView_shape_view,0);
 
         //TextView/EditView属性
+        shapeAttribute.text=typedArray.getString(R.styleable.ShapeView_text);
+        shapeAttribute.selectText=typedArray.getString(R.styleable.ShapeView_select_text);
+
         shapeAttribute.textColor = typedArray.getColor(R.styleable.ShapeView_text_color,Color.TRANSPARENT);
         shapeAttribute.selectTextColor = typedArray.getColor(R.styleable.ShapeView_select_text_color,Color.TRANSPARENT);
         shapeAttribute.unselectDrawable=typedArray.getDrawable(R.styleable.ShapeView_unselect_drawable);

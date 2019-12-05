@@ -174,7 +174,8 @@
             android:id="@+id/tv_change_select_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="点击我切换选中效果"
+            app:text="点击我切换选中效果"
+            app:select_text="选中时显示的文字"
             android:textColor="#FFFFFFFF"
 
             app:unselect_drawable="@mipmap/icon_sex_select_male"

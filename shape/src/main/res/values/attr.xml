@@ -47,8 +47,11 @@
         </attr>
 
         <!--        TextView/EditView属性     -->
+        <attr name="text" format="string"/>
+        <attr name="select_text" format="string"/>
         <attr name="text_color" format="color"/>
         <attr name="select_text_color" format="color"/>
+
         <attr name="unselect_drawable" format="reference"/>
         <attr name="select_drawable" format="reference"/>
         <attr name="drawable_direction"> <!-- 图片方向 -->

@@ -43,8 +43,11 @@ public class ShapeAttribute {
     public int shape;//形状
 
     //TextView/EditView属性
+    public String text;
+    public String selectText;
     public int textColor;
     public int selectTextColor;
+
     public Drawable unselectDrawable;
     public Drawable selectDrawable;
     public int drawableDirection;//图标方向
@@ -96,6 +99,13 @@ public class ShapeAttribute {
             return selectTextColor;
         }
         return textColor;
+    }
+
+    public String getText() {
+        if(selected){
+            return selectText;
+        }
+        return text;
     }
 
     public Drawable getDrawable() {

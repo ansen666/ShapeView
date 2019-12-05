@@ -3,6 +3,7 @@ package com.ansen.shape;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -28,6 +29,8 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
 
         shapeAttribute=ShapeUtil.getShapeAttribute(context,attrs);
         ShapeUtil.setBackground(this,shapeAttribute);
+
+        updateText();
         updateDrawable();
     }
 
@@ -132,7 +135,14 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
             setTextColor(textColor);
         }
 
+        updateText();
         updateDrawable();
+    }
+
+    public void updateText(){
+        if(!TextUtils.isEmpty(shapeAttribute.getText())){
+            setText(shapeAttribute.getText());
+        }
     }
 
     public void updateDrawable(){
