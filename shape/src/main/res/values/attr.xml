@@ -4,6 +4,7 @@
         <!--填充颜色-->
         <attr name="solid_color" format="color"/>
         <attr name="select_solid_color" format="color"/>
+
         <attr name="pressed_solid_color" format="color"/>
 
         <attr name="start_color" format="color"/><!--填充渐变色开始-->
@@ -14,6 +15,11 @@
         <attr name="select_start_color" format="color"/>
         <attr name="select_center_color" format="color"/>
         <attr name="select_end_color" format="color"/>
+
+        <!--        按下渐变色    -->
+        <attr name="pressed_start_color" format="color"/>
+        <attr name="pressed_center_color" format="color"/>
+        <attr name="pressed_end_color" format="color"/>
 
         <attr name="corners_radius" format="dimension"/><!--弧度-->
 

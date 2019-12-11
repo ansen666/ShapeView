@@ -20,11 +20,17 @@ public class ShapeAttribute {
     public int startColor;//开始渐变颜色
     public int centerColor;//中间渐变色
     public int endColor;//结束渐变色
+
     public int selectStartColor;
     public int selectCenterColor;
     public int selectEndColor;
 
     public int pressedSolidColor;//按下填充色
+
+    //按下渐变色
+    public int pressedStartColor;
+    public int pressedCenterColor;
+    public int pressedEndColor;
 
     public int colorOrientation;//颜色渐变方向
 
@@ -52,7 +58,13 @@ public class ShapeAttribute {
     public Drawable selectDrawable;
     public int drawableDirection;//图标方向
 
+    public boolean pressed=false;
+
     public int getSolidColor() {
+        if(pressed){//优先返回按压颜色
+            return pressedSolidColor;
+        }
+
         if(selected){
             return selectSolidColor;
         }
@@ -60,6 +72,10 @@ public class ShapeAttribute {
     }
 
     public int getStartColor() {
+        if(pressed){//优先返回按压颜色
+            return pressedStartColor;
+        }
+
         if(selected){
             return selectStartColor;
         }
@@ -67,6 +83,10 @@ public class ShapeAttribute {
     }
 
     public int getCenterColor() {
+        if(pressed){//优先返回按压颜色
+            return pressedCenterColor;
+        }
+
         if(selected){
             return selectCenterColor;
         }
@@ -74,6 +94,10 @@ public class ShapeAttribute {
     }
 
     public int getEndColor() {
+        if(pressed){//优先返回按压颜色
+            return pressedEndColor;
+        }
+
         if(selected){
             return selectEndColor;
         }
@@ -117,5 +141,15 @@ public class ShapeAttribute {
 
     public int getPressedSolidColor() {
         return pressedSolidColor;
+    }
+
+    /**
+     * @return true:有按下效果 false:没有按下效果
+     */
+    public boolean isPressed(){
+        if(pressedSolidColor!=0||pressedStartColor!=0||pressedEndColor!=0){
+            return true;
+        }
+        return false;
     }
 }

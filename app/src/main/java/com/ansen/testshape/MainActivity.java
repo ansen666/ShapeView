@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.tv_woman){//女选中
             tvMale.setSelected(false);
             tvWoman.setSelected(true);
-        }else if(v.getId()==R.id.ll_item){
-            Toast.makeText(this,"行点击",Toast.LENGTH_SHORT).show();
+        }else if(v.getId()==R.id.tv_press_one){
+            Toast.makeText(this,"按压效果",Toast.LENGTH_SHORT).show();
         }
     }
 }

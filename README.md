@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.0.8'
+implementation 'com.ansen.shape:shape:1.0.9'
 ```
 
 ### 属性使用
@@ -33,6 +33,11 @@ app:end_color="#4669F6" 填充渐变色结束
 app:select_start_color="#EB89FF" 渐变色选中开始色
 app:select_center_color="#FCCE5F" 渐变色选中中间色
 app:select_end_color="#FCCE5F" 渐变色选中结束色
+
+按压渐变色
+app:pressed_start_color="#983458"
+app:pressed_center_color="#98633F"
+app:pressed_end_color="#98633F"
 
 
  <!--   TextView/EditView控件独有属性     -->

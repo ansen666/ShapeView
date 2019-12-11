@@ -16,13 +16,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:onClick="onClick"
             android:padding="10dp"
             android:text="边框+弧度+填充色"
             android:textColor="#FFFFFF"
             app:corners_radius="5dp"
             app:solid_color="#FF00FF"
             app:stroke_color="#00ff00"
-            android:onClick="onClick"
             app:stroke_width="2dp" />
 
         <com.ansen.shape.AnsenTextView
@@ -45,7 +45,7 @@
             android:textColor="#FFFFFF"
             app:bottom_left_radius="15dp"
             app:bottom_right_radius="15dp"
-            app:solid_color="#FF00FF"/>
+            app:solid_color="#FF00FF" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,7 +61,7 @@
             android:text="椭圆形"
             android:textColor="#FFFFFF"
             app:shape_view="oval"
-            app:solid_color="#FF00FF"/>
+            app:solid_color="#FF00FF" />
 
         <com.ansen.shape.AnsenTextView
             android:layout_width="wrap_content"
@@ -70,10 +70,10 @@
             android:padding="20dp"
             android:text="颜色从上到下"
             android:textColor="#FFFFFF"
-            app:color_orientation="top_bottom"
-            app:start_color="#5BC9FF"
             app:center_color="#FF00FF"
-            app:end_color="#4669F6"/>
+            app:color_orientation="top_bottom"
+            app:end_color="#4669F6"
+            app:start_color="#5BC9FF" />
 
         <com.ansen.shape.AnsenTextView
             android:layout_width="wrap_content"
@@ -82,31 +82,31 @@
             android:padding="20dp"
             android:text="颜色从左到右"
             android:textColor="#FFFFFF"
+            app:center_color="#FF00FF"
             app:color_orientation="left_right"
             app:corners_radius="5dp"
-            app:start_color="#5BC9FF"
-            app:center_color="#FF00FF"
-            app:end_color="#4669F6"/>
+            app:end_color="#4669F6"
+            app:start_color="#5BC9FF" />
     </LinearLayout>
 
     <com.ansen.shape.AnsenLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:solid_color="#666666"
-        app:corners_radius="15dp"
         android:layout_margin="5dp"
+        android:orientation="horizontal"
         android:padding="5dp"
-        android:orientation="horizontal">
+        app:corners_radius="15dp"
+        app:solid_color="#666666">
 
         <com.ansen.shape.AnsenView
-            android:layout_marginLeft="10dp"
             android:layout_width="30dp"
             android:layout_height="41dp"
+            android:layout_marginLeft="10dp"
             app:bottom_right_radius="50dp"
-            app:end_color="#F64848"
             app:color_orientation="top_bottom"
+            app:end_color="#F64848"
             app:start_color="#FF8B59"
-            app:top_right_radius="50dp"/>
+            app:top_right_radius="50dp" />
 
         <com.ansen.shape.AnsenTextView
             android:id="@+id/tv_dynamic_alteration"
@@ -115,179 +115,197 @@
             android:layout_margin="10dp"
             android:padding="5dp"
             android:text="点击我通过代码改变View Shape属性"
-            app:corners_radius="15dp"
             android:textColor="#FFFFFF"
             app:color_orientation="top_bottom"
-            app:start_color="#FF8B5A"
-            app:end_color="#F64848"/>
+            app:corners_radius="15dp"
+            app:end_color="#F64848"
+            app:start_color="#FF8B5A" />
     </com.ansen.shape.AnsenLinearLayout>
 
     <com.ansen.shape.AnsenEditText
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:hint="请输入密码"
         android:paddingLeft="10dp"
-        app:solid_color="#f5f5f5"
-        app:corners_radius="5dp" />
+        app:corners_radius="5dp"
+        app:solid_color="#f5f5f5" />
 
     <LinearLayout
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <com.ansen.shape.AnsenTextView
             android:id="@+id/tv_change_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="点击我切换选中效果"
-            android:textColor="#FFFFFFFF"
-
-            app:unselect_drawable="@mipmap/icon_sex_select_male"
-            app:select_drawable="@mipmap/icon_sex_select_woman"
             android:drawablePadding="10dp"
-
-            app:start_color="#FF88D9"
-            app:end_color="#B26BFF"
-            app:stroke_width="0dp"
-            app:text_color="#FFFFFFFF"
-
-            app:select_solid_color="#FFFFFFFF"
-            app:select_stroke_color="#ffbababa"
-            app:select_stroke_width="0.5dp"
-            app:select_text_color="#BBBBBB"
-
-            app:corners_radius="30dp"
-            app:color_orientation="right_left"
+            android:onClick="onClick"
 
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
+
             android:paddingBottom="10dp"
-            android:onClick="onClick" />
+            android:text="点击我切换选中效果"
+            android:textColor="#FFFFFFFF"
+            app:color_orientation="right_left"
+
+            app:corners_radius="30dp"
+            app:end_color="#B26BFF"
+            app:select_drawable="@mipmap/icon_sex_select_woman"
+            app:select_solid_color="#FFFFFFFF"
+
+            app:select_stroke_color="#ffbababa"
+            app:select_stroke_width="0.5dp"
+
+            app:select_text_color="#BBBBBB"
+            app:start_color="#FF88D9"
+            app:stroke_width="0dp"
+            app:text_color="#FFFFFFFF"
+            app:unselect_drawable="@mipmap/icon_sex_select_male" />
 
         <com.ansen.shape.AnsenTextView
-            android:layout_marginLeft="10dp"
             android:id="@+id/tv_change_select_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:text="点击我切换选中效果"
-            app:select_text="选中时显示的文字"
-            android:textColor="#FFFFFFFF"
-
-            app:unselect_drawable="@mipmap/icon_sex_select_male"
-            app:select_drawable="@mipmap/icon_sex_select_woman"
+            android:layout_marginLeft="10dp"
             android:drawablePadding="10dp"
-
-            app:start_color="#FF88D9"
-            app:end_color="#B26BFF"
-            app:stroke_width="0dp"
-            app:text_color="#FFFFFFFF"
-
-            app:select_start_color="#EB89FF"
-            app:select_end_color="#FCCE5F"
-            app:select_text_color="#5B3B28"
-
-            app:corners_radius="30dp"
-            app:color_orientation="right_left"
-
+            android:onClick="onClick"
             android:paddingLeft="10dp"
+
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            android:onClick="onClick" />
+
+            android:textColor="#FFFFFFFF"
+            app:color_orientation="right_left"
+            app:corners_radius="30dp"
+            app:end_color="#B26BFF"
+
+            app:select_drawable="@mipmap/icon_sex_select_woman"
+            app:select_end_color="#FCCE5F"
+            app:select_start_color="#EB89FF"
+
+            app:select_text="选中时显示的文字"
+            app:select_text_color="#5B3B28"
+
+            app:start_color="#FF88D9"
+            app:stroke_width="0dp"
+            app:text="点击我切换选中效果"
+            app:text_color="#FFFFFFFF"
+            app:unselect_drawable="@mipmap/icon_sex_select_male" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:background="#1D1A2A" />
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="请选择性别"/>
+            android:text="请选择性别" />
 
         <com.ansen.shape.AnsenTextView
             android:id="@+id/tv_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="男"
-            android:padding="10dp"
             android:drawablePadding="10dp"
-            app:unselect_drawable="@mipmap/icon_sex_select_male"
-            app:select_drawable="@mipmap/icon_sex_select_woman"
             android:onClick="onClick"
-
+            android:padding="10dp"
+            android:text="男"
             app:drawable_direction="right"
+            app:select_drawable="@mipmap/icon_sex_select_woman"
+
+            app:select_text_color="#EE398E"
 
             app:text_color="#72C7F6"
-            app:select_text_color="#EE398E" />
+            app:unselect_drawable="@mipmap/icon_sex_select_male" />
 
         <com.ansen.shape.AnsenTextView
             android:id="@+id/tv_woman"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="女"
-            android:padding="10dp"
+            android:layout_marginLeft="20dp"
             android:drawablePadding="10dp"
-            app:unselect_drawable="@mipmap/icon_sex_select_male"
-            app:select_drawable="@mipmap/icon_sex_select_woman"
             android:onClick="onClick"
+            android:padding="10dp"
+            android:text="女"
+            app:select_drawable="@mipmap/icon_sex_select_woman"
+            app:select_text_color="#EE398E"
             app:text_color="#72C7F6"
-            app:select_text_color="#EE398E"/>
+            app:unselect_drawable="@mipmap/icon_sex_select_male" />
     </LinearLayout>
 
     <View
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#1D1A2A" />
-
-<!--    com.ansen.shape.Ansen-->
-    <com.ansen.shape.AnsenLinearLayout
-        android:id="@+id/ll_item"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        app:corners_radius="20dp"
-        app:solid_color="#ffffffff"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        app:pressed_solid_color="#FFDEE0E2"
-        android:orientation="vertical"
-        android:onClick="onClick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="#1D1A2A" />
 
-        <TextView
-            android:text="点击我看按压效果"
+    <!--    com.ansen.shape.Ansen-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ansen.shape.AnsenTextView
+            android:id="@+id/tv_press_one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </com.ansen.shape.AnsenLinearLayout>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="点击我看按压效果"
+            app:corners_radius="20dp"
+            app:pressed_solid_color="#FFDEE0E2"
+            app:solid_color="#ffffffff" />
+
+        <com.ansen.shape.AnsenTextView
+            android:id="@+id/tv_press_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="点击我看按压效果"
+            app:corners_radius="20dp"
+            app:start_color="#FE5295"
+            app:end_color="#FEA967"
+            android:textColor="@color/white"
+            app:pressed_start_color="#983458"
+            app:pressed_end_color="#98633F" />
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
+        android:layout_height="0.5dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_height="0.5dp"
         android:background="#1D1A2A" />
 </LinearLayout>

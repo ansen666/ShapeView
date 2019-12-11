@@ -120,7 +120,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         super.setSelected(selected);
 
         if(!change){//没有发生过变化
-            Log.i("ansen","没有发生过变化");
+            Log.i("ansen","选中状态没有发生过变化 不更新");
             return ;
         }
 

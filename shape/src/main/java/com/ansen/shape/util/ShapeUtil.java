@@ -31,6 +31,10 @@ public class ShapeUtil{
         shapeAttribute.selectCenterColor=typedArray.getColor(R.styleable.ShapeView_select_center_color, Color.TRANSPARENT);
         shapeAttribute.selectEndColor=typedArray.getColor(R.styleable.ShapeView_select_end_color, Color.TRANSPARENT);
 
+        shapeAttribute.pressedStartColor=typedArray.getColor(R.styleable.ShapeView_pressed_start_color, Color.TRANSPARENT);
+        shapeAttribute.pressedCenterColor=typedArray.getColor(R.styleable.ShapeView_pressed_center_color, Color.TRANSPARENT);
+        shapeAttribute.pressedEndColor=typedArray.getColor(R.styleable.ShapeView_pressed_end_color, Color.TRANSPARENT);
+
         shapeAttribute.colorOrientation=typedArray.getInt(R.styleable.ShapeView_color_orientation,1);//默认从左到右
 
         shapeAttribute.strokeColor = typedArray.getColor(R.styleable.ShapeView_stroke_color,Color.TRANSPARENT);
@@ -56,7 +60,7 @@ public class ShapeUtil{
         shapeAttribute.selectDrawable=typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
         shapeAttribute.drawableDirection=typedArray.getInt(R.styleable.ShapeView_drawable_direction,0);//默认为0 显示左边
 
-        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
+//        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
 
         typedArray.recycle();
         return shapeAttribute;
@@ -70,14 +74,15 @@ public class ShapeUtil{
         shapeAttribute.selected=view.isSelected();
 
         int pressedSolidColor=shapeAttribute.getPressedSolidColor();
-        if(pressedSolidColor!=0){//有按下颜色
+        if(shapeAttribute.isPressed()){//有按下颜色
 //            Log.i("ansen","pressedSolidColor:"+pressedSolidColor);
             StateListDrawable sb = new StateListDrawable();
 
+            shapeAttribute.pressed=false;
             GradientDrawable normalDrawable=getBaseGradientDrawable(shapeAttribute);
 
+            shapeAttribute.pressed=true;
             GradientDrawable pressedDrawable=getBaseGradientDrawable(shapeAttribute);
-            pressedDrawable.setColor(pressedSolidColor);
 
             //注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
             //所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
@@ -102,7 +107,7 @@ public class ShapeUtil{
 
         int solidColor=shapeAttribute.getSolidColor();
 
-        Log.i("ansen","是否选中:"+shapeAttribute.selected+" startColor:"+startColor+" centerColor:"+centerColor+" solidColor:"+solidColor+" endColor:"+endColor);
+//        Log.i("ansen","是否选中:"+shapeAttribute.selected+" startColor:"+startColor+" centerColor:"+centerColor+" solidColor:"+solidColor+" endColor:"+endColor);
 
         if(startColor!=0&&endColor!=0){//开始颜色跟结束颜色都不为空 设置背景渐变色
             if(centerColor!=0){
@@ -119,7 +124,7 @@ public class ShapeUtil{
         int strokeColor=shapeAttribute.getStrokeColor();
         float strokeWidth=shapeAttribute.getStrokeWidth();
 
-        Log.i("ansen","strokeColor:"+strokeColor+" strokeWidth:"+strokeWidth);
+//        Log.i("ansen","strokeColor:"+strokeColor+" strokeWidth:"+strokeWidth);
 
         if(strokeColor!=0&&strokeWidth!=0){//设置边框
             gradientDrawable.setStroke((int)strokeWidth,strokeColor);
