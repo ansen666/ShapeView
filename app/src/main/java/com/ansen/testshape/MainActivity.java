@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //背景渐变色方向从上到下
                 tvDynamicAlteration.setColorOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
             }else{
-                tvDynamicAlteration.setStartColor(0xFFFF68FF);
-                tvDynamicAlteration.setEndColor(0xFF973DFF);
+                tvDynamicAlteration.setStartColor(0xFFFF68FF);//直接写颜色
+                tvDynamicAlteration.setEndColor(getResources().getColor(R.color.violet));//从资源文件获取颜色
+
                 //背景渐变色方向从右边到左边
                 tvDynamicAlteration.setColorOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
             }
