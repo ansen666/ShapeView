@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -120,7 +119,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         super.setSelected(selected);
 
         if(!change){//没有发生过变化
-            Log.i("ansen","选中状态没有发生过变化 不更新");
+//            Log.i("ansen","选中状态没有发生过变化 不更新");
             return ;
         }
 
