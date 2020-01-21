@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TestShape</string>
+    <string name="goddess">高颜值女神</string>
+    <string name="ordinary_girls">普通女生</string>
 </resources>

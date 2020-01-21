@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.0.9'
+implementation 'com.ansen.shape:shape:1.1.1'
 ```
 
 ### 属性使用
@@ -43,6 +43,8 @@ app:pressed_end_color="#98633F"
  <!--   TextView/EditView控件独有属性     -->
 app:text="点击我切换选中效果"
 app:select_text="选中时显示的文字"
+app:border_gradient="true/false" 边框渐变
+app:text_gradient="true/false" 文字渐变
 
 app:text_color="#FFFFFFFF" 文本未选中颜色
 app:select_text_color="#BBBBBB" 文本选中颜色

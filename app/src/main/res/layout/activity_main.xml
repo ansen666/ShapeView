@@ -294,12 +294,12 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="点击我看按压效果"
-            app:corners_radius="20dp"
-            app:start_color="#FE5295"
-            app:end_color="#FEA967"
             android:textColor="@color/white"
+            app:corners_radius="20dp"
+            app:end_color="#FEA967"
+            app:pressed_end_color="#98633F"
             app:pressed_start_color="#983458"
-            app:pressed_end_color="#98633F" />
+            app:start_color="#FE5295" />
     </LinearLayout>
 
     <View
@@ -308,4 +308,145 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="#1D1A2A" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.ansen.shape.AnsenTextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="6dp"
+            android:text="标签效果"
+            android:textColor="#7ED034"
+            app:bottom_left_radius="3dp"
+            app:bottom_right_radius="20dp"
+            app:stroke_color="#7ED034"
+            app:stroke_width="0.5dp"
+            app:top_left_radius="20dp"
+            app:top_right_radius="3dp" />
+
+        <com.ansen.shape.AnsenLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/svga"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            app:corners_radius="30dp"
+            app:solid_color="#4D000000">
+
+            <com.ansen.shape.AnsenLinearLayout
+                android:id="@+id/ll_goddess"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="6.5dp"
+                android:paddingBottom="6.5dp"
+                app:corners_radius="30dp"
+
+                app:end_color="@android:color/transparent"
+                app:select_end_color="#EE398E"
+
+                app:select_start_color="#FF5EBA"
+                app:start_color="@android:color/transparent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goddess"
+                    android:textColor="@color/white_normal"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击我"
+                    android:textColor="@color/white_normal"
+                    android:textSize="10sp" />
+            </com.ansen.shape.AnsenLinearLayout>
+
+            <com.ansen.shape.AnsenLinearLayout
+                android:id="@+id/ll_ordinary_girls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="6.5dp"
+                android:paddingBottom="6.5dp"
+                app:corners_radius="30dp"
+                app:end_color="@android:color/transparent"
+                app:select_end_color="#EE398E"
+                app:select_start_color="#FF5EBA"
+                app:start_color="@android:color/transparent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ordinary_girls"
+                    android:textColor="@color/white_normal"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击我"
+                    android:textColor="@color/white_normal"
+                    android:textSize="10sp" />
+            </com.ansen.shape.AnsenLinearLayout>
+        </com.ansen.shape.AnsenLinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ansen.shape.AnsenTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:start_color="#FFE61B"
+            app:end_color="#F80FE4"
+            app:text_gradient="true"
+            android:text="文字渐变"/>
+
+        <com.ansen.shape.AnsenTextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:corners_radius="15dp"
+            app:start_color="#FFE61B"
+            app:end_color="#F80FE4"
+            android:padding="5dp"
+            app:stroke_width="1dp"
+            app:border_gradient="true"
+            android:text="边框渐变"/>
+
+        <com.ansen.shape.AnsenTextView
+            android:id="@+id/atv_border_text"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:corners_radius="15dp"
+            app:start_color="#FFE61B"
+            app:end_color="#F80FE4"
+            app:center_color="#5BC9FF"
+            android:padding="5dp"
+            app:stroke_width="1dp"
+            app:text_gradient="true"
+            app:border_gradient="true"
+            android:text="边框跟文字渐变(点我动态改变)"/>
+    </LinearLayout>
 </LinearLayout>

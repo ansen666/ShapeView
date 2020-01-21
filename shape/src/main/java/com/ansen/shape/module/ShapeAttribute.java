@@ -60,6 +60,9 @@ public class ShapeAttribute {
 
     public boolean pressed=false;
 
+    public boolean borderGradient=false;//边框渐变
+    public boolean textGradient=false;//文字渐变
+
     public int getSolidColor() {
         if(pressed){//优先返回按压颜色
             return pressedSolidColor;

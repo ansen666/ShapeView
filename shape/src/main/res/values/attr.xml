@@ -66,5 +66,7 @@
             <enum name="right" value="2" /><!-- 右边 -->
             <enum name="bottom" value="3" /><!-- 底部 -->
         </attr>
+        <attr name="border_gradient" format="boolean"/>
+        <attr name="text_gradient" format="boolean"/>
     </declare-styleable>
 </resources>

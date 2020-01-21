@@ -1,6 +1,12 @@
 package com.ansen.shape;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
@@ -13,7 +19,10 @@ import com.ansen.shape.util.ShapeConstant;
 import com.ansen.shape.util.ShapeUtil;
 
 public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
-    private ShapeAttribute shapeAttribute;
+    private ShapeAttribute attribute;
+
+    private LinearGradient shader;
+    private Paint borderPaint;
 
     public AnsenTextView(Context context) {
         this(context,null);
@@ -26,81 +35,123 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
     public AnsenTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        shapeAttribute=ShapeUtil.getShapeAttribute(context,attrs);
-        ShapeUtil.setBackground(this,shapeAttribute);
+        attribute=ShapeUtil.getShapeAttribute(context,attrs);
+
+        if(!attribute.borderGradient&&!attribute.textGradient){//有边框跟文字渐变就不设置背景了
+            ShapeUtil.setBackground(this,attribute);
+        }
 
         updateText();
         updateDrawable();
     }
 
     @Override
+    protected void onDraw(Canvas canvas) {
+        int textWidth = getMeasuredWidth();
+        if (textWidth > 0 && attribute!=null && (attribute.borderGradient||attribute.textGradient)) {
+            int[] textColors = {attribute.startColor,attribute.endColor};
+            if(attribute.getCenterColor()!=0){
+                textColors=new int[]{attribute.startColor,attribute.centerColor,attribute.endColor};
+            }
+            shader = new LinearGradient(0, 0,getMeasuredWidth(), 0,textColors, null, Shader.TileMode.CLAMP);
+        }
+
+        if(attribute.textGradient){//文字渐变 需要放 super.onDraw前面
+            getPaint().setShader(shader);
+        }
+
+        super.onDraw(canvas);
+
+//        Log.i("ansen","onDraw width:"+getMeasuredWidth());
+        if (textWidth > 0 && attribute.borderGradient){//绘制渐变圆角边框
+//            canvas.save();
+//            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+            if(borderPaint==null){
+                borderPaint = new Paint();
+                borderPaint.setStyle(Paint.Style.STROKE);
+                borderPaint.setStrokeWidth(attribute.getStrokeWidth());
+                borderPaint.setAntiAlias(true);//抗锯齿
+            }
+            borderPaint.setShader(shader);//设置渐变背景
+
+            Rect rect = new Rect();
+            canvas.getClipBounds(rect);
+            RectF rectF = new RectF(rect);
+            float radius = attribute.cornersRadius;
+
+            canvas.drawRoundRect(rectF,radius,radius, borderPaint);
+        }
+    }
+
+    @Override
     public void resetBackground() {
-        ShapeUtil.setBackground(this,shapeAttribute);
+        ShapeUtil.setBackground(this,attribute);
     }
 
     @Override
     public void setSolidColor(int solidColor) {
-        shapeAttribute.solidColor=solidColor;
+        attribute.solidColor=solidColor;
     }
 
     @Override
     public void setStartColor(int startColor) {
-        shapeAttribute.startColor=startColor;
+        attribute.startColor=startColor;
     }
 
     @Override
     public void setCenterColor(int centerColor) {
-        shapeAttribute.centerColor=centerColor;
+        attribute.centerColor=centerColor;
     }
 
     @Override
     public void setEndColor(int endColor) {
-        shapeAttribute.endColor=endColor;
+        attribute.endColor=endColor;
     }
 
     @Override
     public void setColorOrientation(GradientDrawable.Orientation orientation) {
-        shapeAttribute.colorOrientation=ShapeUtil.getOrientation(orientation);
+        attribute.colorOrientation=ShapeUtil.getOrientation(orientation);
     }
 
     @Override
     public void setStrokeColor(int strokeColor) {
-        shapeAttribute.strokeColor=strokeColor;
+        attribute.strokeColor=strokeColor;
     }
 
     @Override
     public void setStrokeWidth(float strokeWidth) {
-        shapeAttribute.strokeWidth=strokeWidth;
+        attribute.strokeWidth=strokeWidth;
     }
 
     @Override
     public void setCornersRadius(float cornersRadius) {
-        shapeAttribute.cornersRadius=cornersRadius;
+        attribute.cornersRadius=cornersRadius;
     }
 
     @Override
     public void setTopLeftRadius(float topLeftRadius) {
-        shapeAttribute.topLeftRadius=topLeftRadius;
+        attribute.topLeftRadius=topLeftRadius;
     }
 
     @Override
     public void setTopRightRadius(float topRightRadius) {
-        shapeAttribute.topRightRadius=topRightRadius;
+        attribute.topRightRadius=topRightRadius;
     }
 
     @Override
     public void setBottomLeftRadius(float bottomLeftRadius) {
-        shapeAttribute.bottomLeftRadius=bottomLeftRadius;
+        attribute.bottomLeftRadius=bottomLeftRadius;
     }
 
     @Override
     public void setBottomRightRadius(float bottomRightRadius) {
-        shapeAttribute.bottomRightRadius=bottomRightRadius;
+        attribute.bottomRightRadius=bottomRightRadius;
     }
 
     @Override
     public void setShape(int shape) {
-        shapeAttribute.shape=shape;
+        attribute.shape=shape;
     }
 
     @Override
@@ -127,9 +178,9 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
             resetBackground();
         }
 
-        shapeAttribute.selected=selected;
+        attribute.selected=selected;
 
-        int textColor=shapeAttribute.getTextColor();
+        int textColor=attribute.getTextColor();
         if(textColor!=0){
             setTextColor(textColor);
         }
@@ -139,24 +190,24 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
     }
 
     public void updateText(){
-        if(!TextUtils.isEmpty(shapeAttribute.getText())){
-            setText(shapeAttribute.getText());
+        if(!TextUtils.isEmpty(attribute.getText())){
+            setText(attribute.getText());
         }
     }
 
     public void updateDrawable(){
-        Drawable drawable=shapeAttribute.getDrawable();
+        Drawable drawable=attribute.getDrawable();
         if(drawable!=null){
             // 这一步必须要做,否则不会显示.
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
 
-            if(shapeAttribute.drawableDirection == ShapeConstant.TextView.LEFT){
+            if(attribute.drawableDirection == ShapeConstant.TextView.LEFT){
                 setCompoundDrawables(drawable, null, null, null);
-            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.TOP){
+            }else if(attribute.drawableDirection == ShapeConstant.TextView.TOP){
                 setCompoundDrawables(null, drawable, null, null);
-            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.RIGHT){
+            }else if(attribute.drawableDirection == ShapeConstant.TextView.RIGHT){
                 setCompoundDrawables(null, null, drawable, null);
-            }else if(shapeAttribute.drawableDirection == ShapeConstant.TextView.BOTTOM){
+            }else if(attribute.drawableDirection == ShapeConstant.TextView.BOTTOM){
                 setCompoundDrawables(null, null, null, drawable);
             }
         }
@@ -167,8 +218,6 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
      * @param drawableDirection ShapeConstant.TextView类下四个常量:LEFT/TOP/RIGHT/BOTTOM
      */
     public void setDrawableDirection(int drawableDirection) {
-        shapeAttribute.drawableDirection = drawableDirection;
+        attribute.drawableDirection = drawableDirection;
     }
-
-
 }

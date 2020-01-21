@@ -7,4 +7,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="violet">#FF973DFF</color>
+
+    <color name="tag_clicl_color">#888DFF</color>
+
+    <color name="white_normal">#ffffffff</color>
 </resources>

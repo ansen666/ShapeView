@@ -60,6 +60,8 @@ public class ShapeUtil{
         shapeAttribute.selectDrawable=typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
         shapeAttribute.drawableDirection=typedArray.getInt(R.styleable.ShapeView_drawable_direction,0);//默认为0 显示左边
 
+        shapeAttribute.borderGradient=typedArray.getBoolean(R.styleable.ShapeView_border_gradient,false);
+        shapeAttribute.textGradient=typedArray.getBoolean(R.styleable.ShapeView_text_gradient,false);
 //        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
 
         typedArray.recycle();
@@ -146,7 +148,7 @@ public class ShapeUtil{
         return gradientDrawable;
     }
 
-    private static GradientDrawable.Orientation getOrientation(int orientation){
+    public static GradientDrawable.Orientation getOrientation(int orientation){
         if(orientation==1){
             return GradientDrawable.Orientation.LEFT_RIGHT;
         }else if(orientation==2){
