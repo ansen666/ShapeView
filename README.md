@@ -24,7 +24,7 @@ app:top_right_radius="15dp" 右上弧度
 app:bottom_left_radius="15dp" 左下弧度
 app:bottom_right_radius="15dp" 右下弧度
 app:shape_view="oval" View形状
-app:color_orientation="top_bottom" 背景颜色渐变色方向
+app:color_orientation="top_bottom" 颜色渐变色方向(背景/边框/文字)
 
 app:start_color="#5BC9FF" 填充渐变色开始
 app:center_color="#FF00FF" 填充渐变色中间
