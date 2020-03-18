@@ -220,4 +220,12 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
     public void setDrawableDirection(int drawableDirection) {
         attribute.drawableDirection = drawableDirection;
     }
+
+    public void setUnselectDrawable(Drawable unselectDrawable) {
+        attribute.unselectDrawable = unselectDrawable;
+    }
+
+    public void setSelectDrawable(Drawable selectDrawable) {
+        attribute.selectDrawable = selectDrawable;
+    }
 }
