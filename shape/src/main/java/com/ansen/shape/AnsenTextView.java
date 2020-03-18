@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.app.RemoteInput;
 
 import com.ansen.shape.module.ShapeAttribute;
 import com.ansen.shape.util.ShapeConstant;
@@ -219,6 +220,14 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
      */
     public void setDrawableDirection(int drawableDirection) {
         attribute.drawableDirection = drawableDirection;
+    }
+
+    public void setUnselectDrawable(int resId) {
+        attribute.unselectDrawable = getContext().getResources().getDrawable(resId);
+    }
+
+    public void setSelectDrawable( int resId) {
+        attribute.selectDrawable = getContext().getResources().getDrawable(resId);
     }
 
     public void setUnselectDrawable(Drawable unselectDrawable) {
