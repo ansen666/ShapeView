@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.1.1'
+implementation 'com.ansen.shape:shape:1.1.4'
 ```
 
 ### 属性使用
@@ -53,6 +53,8 @@ app:unselect_drawable="@mipmap/icon_sex_select_male" 图片未选中
 app:select_drawable="@mipmap/icon_sex_select_woman" 图片选中
 app:drawable_direction="right" 图片显示TextView方向，left：左边 top：上面 right：右边 bottom：底部
 
+AnsenPriorityLinearLayout控件才有的属性:
+app:layout_priority="incompressible" 提高当前View在LinearLayout中的权重，保证内容不被压缩
 ```
 
 ### 案例
@@ -75,8 +77,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         app:stroke_color="#00ff00"
         app:stroke_width="2dp" />
 ```
-
-
 
 ### 效果图
 ![shape](https://raw.githubusercontent.com/ansen666/TestShape/master/shape_prev.gif)
