@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.app.RemoteInput;
 
 import com.ansen.shape.module.ShapeAttribute;
 import com.ansen.shape.util.ShapeConstant;

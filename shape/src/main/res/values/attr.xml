@@ -69,4 +69,13 @@
         <attr name="border_gradient" format="boolean"/>
         <attr name="text_gradient" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="PriorityLinearLayout_Layout">
+        <attr name="layout_priority" format="enum">
+            <enum name="disposable" value="1"/>
+            <enum name="mini_content_protection" value="2"/>
+            <enum name="incompressible" value="3"/>
+        </attr>
+        <attr name="layout_miniContentProtectionSize" format="dimension"/>
+    </declare-styleable>
 </resources>
