@@ -95,11 +95,14 @@ public class ShapeUtil {
             view.setBackground(sb);
         } else {
             StateListDrawable sb = new StateListDrawable();
-            Drawable strokeDrawable = getStrokeLayerDrawable(shapeAttribute);
-            GradientDrawable normal = getBaseGradientDrawable(shapeAttribute);
-
-            sb.addState(new int[]{}, strokeDrawable);
-            sb.addState(new int[]{}, normal);
+            
+            if (shapeAttribute.strokeDirection != 0) { // 标签效果不给支持
+                Drawable strokeDrawable = getStrokeLayerDrawable(shapeAttribute);
+                sb.addState(new int[]{}, strokeDrawable);
+            } else {
+                GradientDrawable normal = getBaseGradientDrawable(shapeAttribute);
+                sb.addState(new int[]{}, normal);
+            }
 
             view.setBackground(sb);
         }
