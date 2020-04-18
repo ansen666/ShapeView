@@ -18,6 +18,7 @@ app:stroke_color="#00ff00" 边框颜色
 app:select_stroke_color="#ffbababa" 选中情况边框色
 app:stroke_width="2dp"  边框宽度
 app:select_stroke_width="0.5dp" 选中情况边框宽度
+app:stroke_direction="left|top|right|bottom" 需要显示的边框方向 默认全边框（不支持选中状态）
 
 app:top_left_radius="15dp" 左上弧度
 app:top_right_radius="15dp" 右上弧度
