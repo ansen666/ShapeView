@@ -28,6 +28,7 @@
                 app:corners_radius="5dp"
                 app:solid_color="#FF00FF"
                 app:stroke_color="#00ff00"
+                app:stroke_direction="bottom|top"
                 app:stroke_width="2dp" />
 
             <com.ansen.shape.AnsenTextView

@@ -2,37 +2,44 @@
 <resources>
     <declare-styleable name="ShapeView">
         <!--填充颜色-->
-        <attr name="solid_color" format="color"/>
-        <attr name="select_solid_color" format="color"/>
+        <attr name="solid_color" format="color" />
+        <attr name="select_solid_color" format="color" />
 
-        <attr name="pressed_solid_color" format="color"/>
+        <attr name="pressed_solid_color" format="color" />
 
-        <attr name="start_color" format="color"/><!--填充渐变色开始-->
-        <attr name="center_color" format="color"/><!--填充渐变色中间-->
-        <attr name="end_color" format="color"/><!--填充渐变色结束-->
+        <attr name="start_color" format="color" /><!--填充渐变色开始-->
+        <attr name="center_color" format="color" /><!--填充渐变色中间-->
+        <attr name="end_color" format="color" /><!--填充渐变色结束-->
 
         <!--        渐变色选中状态    -->
-        <attr name="select_start_color" format="color"/>
-        <attr name="select_center_color" format="color"/>
-        <attr name="select_end_color" format="color"/>
+        <attr name="select_start_color" format="color" />
+        <attr name="select_center_color" format="color" />
+        <attr name="select_end_color" format="color" />
 
         <!--        按下渐变色    -->
-        <attr name="pressed_start_color" format="color"/>
-        <attr name="pressed_center_color" format="color"/>
-        <attr name="pressed_end_color" format="color"/>
+        <attr name="pressed_start_color" format="color" />
+        <attr name="pressed_center_color" format="color" />
+        <attr name="pressed_end_color" format="color" />
 
-        <attr name="corners_radius" format="dimension"/><!--弧度-->
+        <attr name="corners_radius" format="dimension" /><!--弧度-->
 
-        <attr name="top_left_radius" format="dimension"/><!--左上弧度-->
-        <attr name="top_right_radius" format="dimension"/><!--右上弧度-->
-        <attr name="bottom_left_radius" format="dimension"/><!--左下弧度-->
-        <attr name="bottom_right_radius" format="dimension"/><!--右下弧度-->
+        <attr name="top_left_radius" format="dimension" /><!--左上弧度-->
+        <attr name="top_right_radius" format="dimension" /><!--右上弧度-->
+        <attr name="bottom_left_radius" format="dimension" /><!--左下弧度-->
+        <attr name="bottom_right_radius" format="dimension" /><!--右下弧度-->
 
-        <attr name="stroke_color" format="color"/><!--边框颜色-->
-        <attr name="stroke_width" format="dimension"/><!--边框宽度-->
+        <attr name="stroke_color" format="color" /><!--边框颜色-->
+        <attr name="stroke_width" format="dimension" /><!--边框宽度-->
 
-        <attr name="select_stroke_color" format="color"/>
-        <attr name="select_stroke_width" format="dimension"/><!--选中边框宽度-->
+        <attr name="select_stroke_color" format="color" />
+        <attr name="select_stroke_width" format="dimension" /><!--选中边框宽度-->
+
+        <attr name="stroke_direction">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+        </attr>
 
         <attr name="shape_view"> <!-- View形状 -->
             <enum name="rectangle" value="0" /><!-- 矩形 -->
@@ -42,40 +49,40 @@
         </attr>
 
         <attr name="color_orientation"><!--背景颜色渐变色方向-->
-            <enum name="left_right" value="1"/>
-            <enum name="right_left" value="2"/>
-            <enum name="top_bottom" value="3"/>
-            <enum name="bottom_top" value="4"/>
-            <enum name="tr_bl" value="5"/>
-            <enum name="br_tl" value="6"/>
-            <enum name="bl_tr" value="7"/>
-            <enum name="tl_br" value="8"/>
+            <enum name="left_right" value="1" />
+            <enum name="right_left" value="2" />
+            <enum name="top_bottom" value="3" />
+            <enum name="bottom_top" value="4" />
+            <enum name="tr_bl" value="5" />
+            <enum name="br_tl" value="6" />
+            <enum name="bl_tr" value="7" />
+            <enum name="tl_br" value="8" />
         </attr>
 
         <!--        TextView/EditView属性     -->
-        <attr name="text" format="string"/>
-        <attr name="select_text" format="string"/>
-        <attr name="text_color" format="color"/>
-        <attr name="select_text_color" format="color"/>
+        <attr name="text" format="string" />
+        <attr name="select_text" format="string" />
+        <attr name="text_color" format="color" />
+        <attr name="select_text_color" format="color" />
 
-        <attr name="unselect_drawable" format="reference"/>
-        <attr name="select_drawable" format="reference"/>
+        <attr name="unselect_drawable" format="reference" />
+        <attr name="select_drawable" format="reference" />
         <attr name="drawable_direction"> <!-- 图片方向 -->
             <enum name="left" value="0" /><!-- 左边 -->
             <enum name="top" value="1" /><!-- 上面 -->
             <enum name="right" value="2" /><!-- 右边 -->
             <enum name="bottom" value="3" /><!-- 底部 -->
         </attr>
-        <attr name="border_gradient" format="boolean"/>
-        <attr name="text_gradient" format="boolean"/>
+        <attr name="border_gradient" format="boolean" />
+        <attr name="text_gradient" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="PriorityLinearLayout_Layout">
         <attr name="layout_priority" format="enum">
-            <enum name="disposable" value="1"/>
-            <enum name="mini_content_protection" value="2"/>
-            <enum name="incompressible" value="3"/>
+            <enum name="disposable" value="1" />
+            <enum name="mini_content_protection" value="2" />
+            <enum name="incompressible" value="3" />
         </attr>
-        <attr name="layout_miniContentProtectionSize" format="dimension"/>
+        <attr name="layout_miniContentProtectionSize" format="dimension" />
     </declare-styleable>
 </resources>

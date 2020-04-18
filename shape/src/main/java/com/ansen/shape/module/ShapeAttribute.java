@@ -39,6 +39,7 @@ public class ShapeAttribute {
 
     public float strokeWidth;//边框宽度
     public float selectStrokeWidth;//选中边框宽度
+    public int strokeDirection;//那个方向需要边框 默认全部
 
     public float cornersRadius;//四个角弧度
     public float topLeftRadius;//左上角
