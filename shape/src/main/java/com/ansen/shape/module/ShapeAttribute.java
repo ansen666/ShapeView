@@ -38,6 +38,8 @@ public class ShapeAttribute {
     public int selectStrokeColor;//选中边框颜色
 
     public float strokeWidth;//边框宽度
+    public float strokeSpace;//描边与图片间距
+
     public float selectStrokeWidth;//选中边框宽度
     public int strokeDirection;//那个方向需要边框 默认全部
 
@@ -63,6 +65,8 @@ public class ShapeAttribute {
 
     public boolean borderGradient=false;//边框渐变
     public boolean textGradient=false;//文字渐变
+
+    public int scaleType;//图片才有的属性
 
     public int getSolidColor() {
         if(pressed){//优先返回按压颜色

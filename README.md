@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.1.5'
+implementation 'com.ansen.shape:shape:1.1.6'
 ```
 
 ### 属性使用
@@ -55,6 +55,10 @@ app:drawable_direction="right" 图片显示TextView方向，left：左边 top：
 
 AnsenPriorityLinearLayout控件才有的属性:
 app:layout_priority="incompressible" 提高当前View在LinearLayout中的权重，保证内容不被压缩
+
+图片属性
+app:scale_type="top/center/bottom/fitXY" 显示类型
+app:stroke_space="0.5dp" 描边与图片间距
 ```
 
 ### 案例

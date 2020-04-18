@@ -7,9 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.R;
@@ -52,6 +50,9 @@ public class ShapeUtil {
         shapeAttribute.bottomRightRadius = typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
 
         shapeAttribute.shape = typedArray.getInt(R.styleable.ShapeView_shape_view, 0);
+        shapeAttribute.scaleType=typedArray.getInt(R.styleable.ShapeView_scale_type, ShapeConstant.ScaleType.TOP);
+
+        shapeAttribute.strokeSpace=typedArray.getDimension(R.styleable.ShapeView_stroke_space, 0.0F);
 
         //TextView/EditView属性
         shapeAttribute.text = typedArray.getString(R.styleable.ShapeView_text);
@@ -103,7 +104,6 @@ public class ShapeUtil {
                 GradientDrawable normal = getBaseGradientDrawable(shapeAttribute);
                 sb.addState(new int[]{}, normal);
             }
-
             view.setBackground(sb);
         }
     }
@@ -122,7 +122,6 @@ public class ShapeUtil {
         stateListDrawable.addState(new int[]{}, layerDrawable);
         return stateListDrawable;
     }
-
 
     private static GradientDrawable getBaseGradientDrawable(ShapeAttribute shapeAttribute) {
         GradientDrawable gradientDrawable = new GradientDrawable();

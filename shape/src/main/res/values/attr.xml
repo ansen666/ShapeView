@@ -75,6 +75,16 @@
         </attr>
         <attr name="border_gradient" format="boolean" />
         <attr name="text_gradient" format="boolean" />
+
+        <!-- 图片属性-->
+        <!-- 无论是什么展示形式，都会填充满整个控件，如果不想填充满，自己去改onDraw里面的 dst -->
+        <attr name="scale_type" format="enum">
+            <enum name="top" value="0">从图片顶部开始绘制，即肯定会展示图片顶部，默认</enum>
+            <enum name="center" value="1">展示图片中心</enum>
+            <enum name="bottom" value="2">从图片底部开始绘制，即肯定会展示图片底部</enum>
+            <enum name="fitXY" value="3">完全展示，有可能变形</enum>
+        </attr>
+        <attr name="stroke_space" format="dimension">描边与图片间距</attr>
     </declare-styleable>
 
     <declare-styleable name="PriorityLinearLayout_Layout">
