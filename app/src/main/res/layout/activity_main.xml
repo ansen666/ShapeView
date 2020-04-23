@@ -547,7 +547,20 @@
                 app:top_right_radius="15dp"
                 app:bottom_left_radius="15dp"/>
 
-
+            <com.ansen.shape.AnsenImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
+                android:paddingLeft="6.5dp"
+                android:paddingRight="6.5dp"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/icon_ok"
+                android:textColor="@color/white_normal"
+                app:corners_radius="30dp"
+                app:solid_color="#35F587" />
         </LinearLayout>
 
     </LinearLayout>

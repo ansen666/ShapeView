@@ -38,6 +38,8 @@ public class AnsenImageView extends AppCompatImageView {
         super(context, attrs);
 
         attribute= ShapeUtil.getShapeAttribute(context,attrs);
+        ShapeUtil.setBackground(this,attribute);
+
         initData();
     }
 
