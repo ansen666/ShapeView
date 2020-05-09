@@ -42,6 +42,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         }
 
         updateText();
+        updateTextColor();
         updateDrawable();
     }
 
@@ -180,18 +181,21 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
 
         attribute.selected=selected;
 
-        int textColor=attribute.getTextColor();
-        if(textColor!=0){
-            setTextColor(textColor);
-        }
-
         updateText();
+        updateTextColor();
         updateDrawable();
     }
 
     public void updateText(){
         if(!TextUtils.isEmpty(attribute.getText())){
             setText(attribute.getText());
+        }
+    }
+
+    public void updateTextColor(){
+        int textColor=attribute.getTextColor();
+        if(textColor!=0){
+            setTextColor(textColor);
         }
     }
 

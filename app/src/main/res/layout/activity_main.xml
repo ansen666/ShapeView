@@ -562,6 +562,5 @@
                 app:corners_radius="30dp"
                 app:solid_color="#35F587" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>
