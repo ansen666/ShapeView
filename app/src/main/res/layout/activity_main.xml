@@ -515,7 +515,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@mipmap/icon_image"
-                app:corners_radius="50dp"/>
+                app:corners_radius="50dp" />
 
             <com.ansen.shape.AnsenImageView
                 android:layout_width="50dp"
@@ -524,7 +524,7 @@
                 app:stroke_color="#00ff00"
                 android:layout_marginLeft="10dp"
                 app:stroke_width="2dp"
-                app:corners_radius="50dp"/>
+                app:corners_radius="50dp" />
 
             <com.ansen.shape.AnsenImageView
                 android:layout_width="50dp"
@@ -534,7 +534,7 @@
                 android:layout_marginLeft="10dp"
                 app:stroke_width="3dp"
                 app:top_right_radius="15dp"
-                app:bottom_left_radius="15dp"/>
+                app:bottom_left_radius="15dp" />
 
             <com.ansen.shape.AnsenImageView
                 android:layout_width="50dp"
@@ -545,7 +545,7 @@
                 app:stroke_width="3dp"
                 app:stroke_space="5dp"
                 app:top_right_radius="15dp"
-                app:bottom_left_radius="15dp"/>
+                app:bottom_left_radius="15dp" />
 
             <com.ansen.shape.AnsenImageView
                 android:layout_width="wrap_content"
@@ -562,5 +562,22 @@
                 app:corners_radius="30dp"
                 app:solid_color="#35F587" />
         </LinearLayout>
+
+        <com.ansen.shape.AnsenConstraintLayout
+            android:layout_marginTop="10dp"
+            app:solid_color="#FF00FF"
+            app:corners_radius="5dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="123"
+                android:textColor="#FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.ansen.shape.AnsenConstraintLayout>
+
+
     </LinearLayout>
 </ScrollView>
