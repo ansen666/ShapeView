@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.1.9'
+implementation 'com.ansen.shape:shape:1.2.0'
 ```
 
 ### 属性使用
