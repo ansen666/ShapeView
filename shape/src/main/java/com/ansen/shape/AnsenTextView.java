@@ -161,7 +161,12 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
      */
     @Override
     public void setSelected(boolean selected) {
-        setSelected(selected,true);
+        //如果有背景选中颜色就更新背景
+        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0||attribute.selectEndColor!=0){
+            setSelected(selected,true);
+        }else{
+            setSelected(selected,false);
+        }
     }
 
     /**

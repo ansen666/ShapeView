@@ -1,7 +1,6 @@
 package com.ansen.shape.module;
 
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 
 /**
  * 自定义属性
@@ -74,7 +73,7 @@ public class ShapeAttribute {
             return pressedSolidColor;
         }
 
-        if(selected && selectSolidColor!=0){
+        if(selected){
             return selectSolidColor;
         }
         return solidColor;
@@ -85,7 +84,7 @@ public class ShapeAttribute {
             return pressedStartColor;
         }
 
-        if(selected && selectStartColor!=0){
+        if(selected){
             return selectStartColor;
         }
         return startColor;
@@ -96,7 +95,7 @@ public class ShapeAttribute {
             return pressedCenterColor;
         }
 
-        if(selected && selectCenterColor!=0){
+        if(selected){
             return selectCenterColor;
         }
         return centerColor;
@@ -107,42 +106,42 @@ public class ShapeAttribute {
             return pressedEndColor;
         }
 
-        if(selected && selectEndColor!=0){
+        if(selected){
             return selectEndColor;
         }
         return endColor;
     }
 
     public int getStrokeColor() {
-        if(selected && selectStrokeColor!=0){
+        if(selected){
             return selectStrokeColor;
         }
         return strokeColor;
     }
 
     public float getStrokeWidth() {
-        if(selected && selectStrokeWidth!=0){
+        if(selected){
             return selectStrokeWidth;
         }
         return strokeWidth;
     }
 
     public int getTextColor() {
-        if(selected && selectTextColor!=0){
+        if(selected){
             return selectTextColor;
         }
         return textColor;
     }
 
     public String getText() {
-        if(selected && !TextUtils.isEmpty(selectText)){
+        if(selected){
             return selectText;
         }
         return text;
     }
 
     public Drawable getDrawable() {
-        if(selected && selectDrawable!=null){
+        if(selected){
             return selectDrawable;
         }
         return unselectDrawable;
