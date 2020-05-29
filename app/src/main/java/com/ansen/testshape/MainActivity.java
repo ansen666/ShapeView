@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ansen.shape.AnsenFrameLayout;
@@ -108,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 atvBorderText.setEndColor(0xFFF80FE4);
             }
             atvBorderText.invalidate();//重绘
+        }else if(v.getId()==R.id.tv_age){
+            AnsenTextView tvAge= (AnsenTextView) v;
+            tvAge.setSelected(!tvAge.isSelected());
         }
     }
 }
