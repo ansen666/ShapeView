@@ -8,12 +8,13 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.ansen.shape.R;
 import com.ansen.shape.module.ShapeAttribute;
 
-public class ShapeUtil {
+public class ShapeUtil{
     public static ShapeAttribute getShapeAttribute(Context context, AttributeSet attrs) {
         ShapeAttribute shapeAttribute = new ShapeAttribute();
 
@@ -66,7 +67,8 @@ public class ShapeUtil {
 
         shapeAttribute.borderGradient = typedArray.getBoolean(R.styleable.ShapeView_border_gradient, false);
         shapeAttribute.textGradient = typedArray.getBoolean(R.styleable.ShapeView_text_gradient, false);
-//        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
+
+//        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor);
 
         typedArray.recycle();
         return shapeAttribute;

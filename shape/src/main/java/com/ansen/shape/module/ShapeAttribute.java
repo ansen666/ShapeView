@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
  */
 public class ShapeAttribute {
     public ShapeAttribute(){
-
     }
 
     public boolean selected=false;//是否选中
@@ -160,4 +159,6 @@ public class ShapeAttribute {
         }
         return false;
     }
+
+
 }

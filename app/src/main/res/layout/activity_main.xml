@@ -579,28 +579,67 @@
                 android:textColor="#FFFFFF" />
         </com.ansen.shape.AnsenConstraintLayout>
 
-        <com.ansen.shape.AnsenTextView
-            android:id="@+id/tv_age"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:drawablePadding="3dp"
-            android:gravity="center"
-            android:paddingLeft="5.5dp"
-            android:paddingTop="2dp"
-            android:paddingRight="5.5dp"
-            android:paddingBottom="2dp"
-            android:text="年龄"
-            android:onClick="onClick"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
             android:layout_marginLeft="10dp"
-            app:drawable_direction="left"
-            app:select_drawable="@mipmap/icon_sex_select_woman"
-            app:unselect_drawable="@mipmap/icon_sex_select_male"
-            app:color_orientation="left_right"
-            app:corners_radius="15dp"
-            app:end_color="#69E3FE"
-            app:start_color="#83CAFE" />
+            android:orientation="horizontal">
+
+            <com.ansen.shape.AnsenTextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:paddingLeft="5.5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5.5dp"
+                android:paddingBottom="2dp"
+                android:text="年龄"
+                android:onClick="onClick"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+
+                app:drawable_direction="left"
+                app:select_drawable="@mipmap/icon_sex_select_woman"
+                app:unselect_drawable="@mipmap/icon_sex_select_male"
+                app:color_orientation="left_right"
+                app:corners_radius="15dp"
+                app:end_color="#69E3FE"
+                app:start_color="#FFFFFFFF" />
+
+            <com.ansen.shape.AnsenTextView
+                android:id="@+id/tv_age_two"
+                android:onClick="onClick"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@+id/tv_state"
+
+                app:stroke_color="#FE83C6"
+                app:stroke_width="0.5dp"
+
+                app:select_stroke_color="#69E3FE"
+                app:select_stroke_width="0.5dp"
+
+                app:corners_radius="30dp"
+                app:text_color="#FE83C6"
+                app:select_text_color="#69E3FE"
+                app:unselect_drawable="@mipmap/icon_sex_select_woman"
+                app:select_drawable="@mipmap/icon_sex_select_male"
+                app:drawable_direction="left"
+                android:drawablePadding="2dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="3dp"
+                app:text="女"
+                app:select_text="男"
+                android:textSize="9sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

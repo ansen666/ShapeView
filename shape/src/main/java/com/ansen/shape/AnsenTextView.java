@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -155,35 +156,27 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         attribute.shape=shape;
     }
 
-    /**
-     * 设置选中状态 同时更新文本、背景、文字颜色
-     * @param selected
-     */
-    @Override
-    public void setSelected(boolean selected) {
-        //如果有背景选中颜色就更新背景
-        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0||attribute.selectEndColor!=0){
-            setSelected(selected,true);
-        }else{
-            setSelected(selected,false);
-        }
-    }
 
     /**
+     * 这个方法弃用 直接调用View.setSelected
      * @param selected
      * @param updateBackground 是否需要更新背景
      */
+    @Deprecated
     public void setSelected(boolean selected,boolean updateBackground) {
-        boolean change=selected!=isSelected();
-
         super.setSelected(selected);
+    }
 
-        if(!change){//没有发生过变化
-//            Log.i("ansen","选中状态没有发生过变化 不更新");
+    //view选中状态变更回调
+    protected void dispatchSetSelected(boolean selected){
+        super.dispatchSetSelected(selected);
+
+        if(selected==attribute.selected){//没有发生过变化 不需要更新
             return ;
         }
 
-        if(updateBackground){
+        Log.i("ansen","dispatchSetSelected selected:"+selected);
+        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0||attribute.selectEndColor!=0||attribute.selectStrokeColor!=0){
             resetBackground();
         }
 

@@ -71,12 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             change=!change;
             tvDynamicAlteration.resetBackground();//设置了属性之后需要调用这个方法
-
         }else if(v.getId()==R.id.tv_change_select){//改变选中效果
             Log.i("ansen","点击之后");
-            ((AnsenTextView)v).setSelected(!v.isSelected());
+            v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_change_select_two){
-            ((AnsenTextView)v).setSelected(!v.isSelected());
+            v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_one){
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_male){//男选中
@@ -110,8 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             atvBorderText.invalidate();//重绘
         }else if(v.getId()==R.id.tv_age){
-            AnsenTextView tvAge= (AnsenTextView) v;
-            tvAge.setSelected(!tvAge.isSelected());
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_age_two){
+            v.setSelected(!v.isSelected());
         }
     }
 }

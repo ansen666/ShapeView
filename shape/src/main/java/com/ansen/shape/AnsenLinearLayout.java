@@ -97,8 +97,8 @@ public class AnsenLinearLayout extends LinearLayout implements IAnsenShapeView{
     }
 
     @Override
-    public void setSelected(boolean selected) {
-        super.setSelected(selected);
+    public void dispatchSetSelected(boolean selected) {
+        super.dispatchSetSelected(selected);
 
         shapeAttribute.selected=selected;
         resetBackground();
