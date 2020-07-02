@@ -61,6 +61,11 @@ public class ShapeUtil{
 
         shapeAttribute.textColor = typedArray.getColor(R.styleable.ShapeView_text_color, Color.TRANSPARENT);
         shapeAttribute.selectTextColor = typedArray.getColor(R.styleable.ShapeView_select_text_color, Color.TRANSPARENT);
+
+        shapeAttribute.textSize=typedArray.getDimensionPixelSize(R.styleable.ShapeView_text_size,0);
+        shapeAttribute.selectTextSize=typedArray.getDimensionPixelSize(R.styleable.ShapeView_select_text_size,0);
+//        Log.i("ansen","size:"+shapeAttribute.textSize+" selectTextSize:"+shapeAttribute.selectTextSize);
+
         shapeAttribute.unselectDrawable = typedArray.getDrawable(R.styleable.ShapeView_unselect_drawable);
         shapeAttribute.selectDrawable = typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
         shapeAttribute.drawableDirection = typedArray.getInt(R.styleable.ShapeView_drawable_direction, 0);//默认为0 显示左边

@@ -2,6 +2,7 @@ package com.ansen.testshape;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -111,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.tv_age){
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_age_two){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_select){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.iv_image){
             v.setSelected(!v.isSelected());
         }
     }

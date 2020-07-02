@@ -38,6 +38,11 @@ public class AnsenButton extends AppCompatButton implements IAnsenShapeView{
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        shapeAttribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         shapeAttribute.startColor=startColor;
     }

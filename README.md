@@ -3,7 +3,7 @@
 
 ### 在线依赖
 ```
-implementation 'com.ansen.shape:shape:1.2.3'
+implementation 'com.ansen.shape:shape:1.2.4'
 ```
 
 ### 属性使用
@@ -43,8 +43,12 @@ app:select_stroke_width="0.5dp" 选中情况边框宽度
 TextView/EditView控件独有属性
 app:text="点击我切换选中效果"
 app:select_text="选中时显示的文字"
+
 app:text_color="#FFFFFFFF" 文本未选中颜色
 app:select_text_color="#BBBBBB" 文本选中颜色
+
+app:text_size="10sp" 字体大小
+app:select_text_size="20sp" 选中字体大小
 
 app:border_gradient="true/false" 边框渐变
 app:text_gradient="true/false" 文字渐变

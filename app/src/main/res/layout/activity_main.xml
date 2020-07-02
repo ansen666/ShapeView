@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#F7F7F7"
     android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F7F7F7"
         android:orientation="vertical">
 
         <LinearLayout
@@ -639,7 +639,30 @@
                 android:paddingBottom="3dp"
                 app:text="女"
                 app:select_text="男"
-                android:textSize="9sp" />
+                app:select_text_size="20sp"
+                app:text_size="10sp"/>
+
+            <com.ansen.shape.AnsenTextView
+                android:id="@+id/tv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择"
+                android:onClick="onClick"
+                app:corners_radius="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:select_solid_color="#EE398E"
+                app:solid_color="#F1F1F1"
+                app:text_color="#838491"
+                app:select_text_color="@color/white_normal"/>
+
+            <com.ansen.shape.AnsenImageView
+                android:id="@+id/iv_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                app:unselect_drawable="@mipmap/icon_sex_select_woman"
+                app:select_drawable="@mipmap/icon_sex_select_male"/>
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

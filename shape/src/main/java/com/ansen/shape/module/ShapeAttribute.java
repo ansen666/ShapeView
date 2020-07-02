@@ -53,8 +53,9 @@ public class ShapeAttribute {
     //TextView/EditView属性
     public String text;
     public String selectText;
-    public int textColor;
-    public int selectTextColor;
+
+    public int textColor,selectTextColor;
+    public int textSize,selectTextSize;//文字大小
 
     public Drawable unselectDrawable;
     public Drawable selectDrawable;
@@ -132,12 +133,18 @@ public class ShapeAttribute {
         return textColor;
     }
 
+    public int getTextSize() {
+        return selected?selectTextSize:textSize;
+    }
+
     public String getText() {
         if(selected){
             return selectText;
         }
         return text;
     }
+
+
 
     public Drawable getDrawable() {
         if(selected){

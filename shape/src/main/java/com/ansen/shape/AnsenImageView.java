@@ -13,6 +13,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,6 +42,25 @@ public class AnsenImageView extends AppCompatImageView {
         ShapeUtil.setBackground(this,attribute);
 
         initData();
+        updateSrc();
+    }
+
+    //view选中状态变更回调
+    protected void dispatchSetSelected(boolean selected){
+        super.dispatchSetSelected(selected);
+
+        if(selected==attribute.selected){//没有发生过变化 不需要更新
+            return ;
+        }
+        attribute.selected=selected;
+        updateSrc();
+    }
+
+    public void updateSrc(){
+        Drawable drawable=attribute.getDrawable();
+        if(drawable!=null){
+            setImageDrawable(drawable);
+        }
     }
 
     public void initData() {

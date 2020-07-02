@@ -14,6 +14,8 @@ public interface IAnsenShapeView {
 
     void setSolidColor(int solidColor);
 
+    void setPressedSolidColor(int pressedSolidColor);
+
     void setStartColor(int startColor);
 
     void setCenterColor(int centerColor);

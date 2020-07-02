@@ -65,14 +65,19 @@
         <attr name="text_color" format="color" />
         <attr name="select_text_color" format="color" />
 
+        <attr name="text_size" format="dimension" />
+        <attr name="select_text_size" format="dimension" />
+
         <attr name="unselect_drawable" format="reference" />
         <attr name="select_drawable" format="reference" />
+
         <attr name="drawable_direction"> <!-- 图片方向 -->
             <enum name="left" value="0" /><!-- 左边 -->
             <enum name="top" value="1" /><!-- 上面 -->
             <enum name="right" value="2" /><!-- 右边 -->
             <enum name="bottom" value="3" /><!-- 底部 -->
         </attr>
+
         <attr name="border_gradient" format="boolean" />
         <attr name="text_gradient" format="boolean" />
 

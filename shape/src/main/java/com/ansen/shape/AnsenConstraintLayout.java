@@ -42,6 +42,11 @@ public class AnsenConstraintLayout extends ConstraintLayout implements IAnsenSha
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        shapeAttribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         shapeAttribute.startColor=startColor;
     }

@@ -12,6 +12,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -43,6 +44,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         }
 
         updateText();
+        updateTextSize();
         updateTextColor();
         updateDrawable();
     }
@@ -94,6 +96,11 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
     @Override
     public void setSolidColor(int solidColor) {
         attribute.solidColor=solidColor;
+    }
+
+    @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        attribute.pressedSolidColor=pressedSolidColor;
     }
 
     @Override
@@ -176,7 +183,9 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
         }
 
         Log.i("ansen","dispatchSetSelected selected:"+selected);
-        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0||attribute.selectEndColor!=0||attribute.selectStrokeColor!=0){
+        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0
+                ||attribute.selectEndColor!=0||attribute.selectStrokeColor!=0
+            ||attribute.selectSolidColor!=0){
             resetBackground();
         }
 
@@ -184,6 +193,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
 
         updateText();
         updateTextColor();
+        updateTextSize();
         updateDrawable();
     }
 
@@ -199,6 +209,15 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
             setTextColor(textColor);
         }
     }
+
+    public void updateTextSize(){
+        int textSize=attribute.getTextSize();
+        if(textSize!=0){
+            setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
+        }
+    }
+
+
 
     public void updateDrawable(){
         Drawable drawable=attribute.getDrawable();
@@ -240,5 +259,26 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView{
 
     public void setSelectDrawable(Drawable selectDrawable) {
         attribute.selectDrawable = selectDrawable;
+    }
+
+    /**
+     * @param size 单位是sp
+     */
+    public void setTextSize(int size){
+        attribute.textSize=spToPixel(getContext(),size);
+    }
+
+    /**
+     * @param size 单位是sp
+     */
+    public void setSelectTextSize(int size){
+        attribute.selectTextSize=spToPixel(getContext(),size);
+    }
+
+    //将sp转换成pixel
+    private int spToPixel(Context context, float spValue) {
+        float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
+        int pixelValue=(int) (spValue * scaledDensity + 0.5f);
+        return pixelValue;
     }
 }
