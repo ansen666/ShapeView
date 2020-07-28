@@ -68,6 +68,7 @@ public class ShapeUtil{
 
         shapeAttribute.unselectDrawable = typedArray.getDrawable(R.styleable.ShapeView_unselect_drawable);
         shapeAttribute.selectDrawable = typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
+//        Log.i("ansen","selectDrawable:"+shapeAttribute.selectDrawable);
         shapeAttribute.drawableDirection = typedArray.getInt(R.styleable.ShapeView_drawable_direction, 0);//默认为0 显示左边
 
         shapeAttribute.borderGradient = typedArray.getBoolean(R.styleable.ShapeView_border_gradient, false);

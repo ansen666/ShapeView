@@ -629,7 +629,7 @@
                 app:text_color="#FE83C6"
                 app:select_text_color="#69E3FE"
                 app:unselect_drawable="@mipmap/icon_sex_select_woman"
-                app:select_drawable="@mipmap/icon_sex_select_male"
+                app:select_drawable="@null"
                 app:drawable_direction="left"
                 android:drawablePadding="2dp"
                 android:gravity="center_vertical"

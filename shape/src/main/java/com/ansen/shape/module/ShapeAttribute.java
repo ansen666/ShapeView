@@ -144,8 +144,6 @@ public class ShapeAttribute {
         return text;
     }
 
-
-
     public Drawable getDrawable() {
         if(selected){
             return selectDrawable;
