@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.ansen.shape.AnsenTextView
+        android:id="@+id/tv_age_two"
+        android:onClick="onClick"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_toRightOf="@+id/tv_state"
+
+        app:stroke_color="#FE83C6"
+        app:stroke_width="0.5dp"
+
+        app:select_stroke_color="#69E3FE"
+        app:select_stroke_width="0.5dp"
+
+        app:corners_radius="30dp"
+        app:text_color="#FE83C6"
+        app:select_text_color="#69E3FE"
+        android:drawableLeft="@mipmap/icon_sex_select_woman"
+        app:select_drawable="@null"
+        app:drawable_direction="left"
+        android:drawablePadding="2dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="3dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="3dp"
+        app:text="女"
+        app:select_text="男"
+        app:select_text_size="20sp"
+        app:text_size="10sp"/>
+</LinearLayout>
