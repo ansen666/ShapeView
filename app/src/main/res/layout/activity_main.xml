@@ -516,13 +516,16 @@
                 app:corners_radius="50dp" />
 
             <com.ansen.shape.AnsenImageView
+                android:id="@+id/aiv_one"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:src="@mipmap/icon_image"
                 app:corners_radius="50dp"
+                app:select_stroke_color="#ff00ff"
+                app:select_stroke_width="2dp"
                 app:stroke_color="#00ff00"
-                app:stroke_width="2dp" />
+                app:stroke_width="2dp"/>
 
             <com.ansen.shape.AnsenImageView
                 android:layout_width="50dp"

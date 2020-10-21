@@ -13,12 +13,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-
 import com.ansen.shape.module.ShapeAttribute;
 import com.ansen.shape.util.ShapeConstant;
 import com.ansen.shape.util.ShapeUtil;
@@ -61,6 +58,11 @@ public class AnsenImageView extends AppCompatImageView {
         if(drawable!=null){
             setImageDrawable(drawable);
         }
+
+        //重新绘制边框
+        borderPaint.setStrokeWidth(attribute.getStrokeWidth());
+        borderPaint.setColor(attribute.getStrokeColor());
+        invalidate();
     }
 
     public void initData() {
@@ -77,8 +79,8 @@ public class AnsenImageView extends AppCompatImageView {
 
         borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         borderPaint.setStyle(Paint.Style.STROKE);
-        borderPaint.setStrokeWidth(attribute.strokeWidth);
-        borderPaint.setColor(attribute.strokeColor);
+        borderPaint.setStrokeWidth(attribute.getStrokeWidth());
+        borderPaint.setColor(attribute.getStrokeColor());
 
         if (circle) {
             //  为什么设置这一条，因为Glide中，在into 源码内
@@ -123,7 +125,6 @@ public class AnsenImageView extends AppCompatImageView {
             rectF.inset(i, i);
             //  绘制描边，半径需要进行偏移 i
             drawPath(canvas, rectF, borderPaint, i);
-
         }
 
         if ((null != drawable && circle)) {

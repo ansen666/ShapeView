@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         atvBorderText=findViewById(R.id.atv_border_text);
         atvBorderText.setOnClickListener(this);
+
+        findViewById(R.id.aiv_one).setOnClickListener(this);
     }
 
     @Override
@@ -116,6 +118,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.tv_select){
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.iv_image){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.aiv_one){
             v.setSelected(!v.isSelected());
         }
     }
