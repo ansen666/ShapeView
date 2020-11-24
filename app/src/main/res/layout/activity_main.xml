@@ -424,6 +424,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="文字渐变"
+                app:color_orientation="top_bottom"
                 app:end_color="#F80FE4"
                 app:start_color="#FFE61B"
                 app:text_gradient="true" />
