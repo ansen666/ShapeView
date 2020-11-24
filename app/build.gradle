@@ -3,9 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
+
     defaultConfig {
         applicationId "com.ansen.testshape"
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -28,5 +29,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(path: ':shape')
-//    implementation 'com.ansen.shape:shape:1.1.0'
+//    implementation 'com.ansen.shape:shape:1.2.7'
 }

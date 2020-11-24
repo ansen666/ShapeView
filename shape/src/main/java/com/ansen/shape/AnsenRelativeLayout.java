@@ -37,6 +37,11 @@ public class AnsenRelativeLayout extends RelativeLayout implements IAnsenShapeVi
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        shapeAttribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         shapeAttribute.startColor=startColor;
     }

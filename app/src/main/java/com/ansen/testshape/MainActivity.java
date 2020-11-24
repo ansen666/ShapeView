@@ -2,12 +2,14 @@ package com.ansen.testshape;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ansen.shape.AnsenFrameLayout;
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         atvBorderText=findViewById(R.id.atv_border_text);
         atvBorderText.setOnClickListener(this);
+
+        findViewById(R.id.aiv_one).setOnClickListener(this);
     }
 
     @Override
@@ -70,12 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             change=!change;
             tvDynamicAlteration.resetBackground();//设置了属性之后需要调用这个方法
-
         }else if(v.getId()==R.id.tv_change_select){//改变选中效果
             Log.i("ansen","点击之后");
-            ((AnsenTextView)v).setSelected(!v.isSelected(),true);
+            v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_change_select_two){
-            ((AnsenTextView)v).setSelected(!v.isSelected(),true);
+            v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_one){
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_male){//男选中
@@ -108,6 +111,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 atvBorderText.setEndColor(0xFFF80FE4);
             }
             atvBorderText.invalidate();//重绘
+        }else if(v.getId()==R.id.tv_age){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_age_two){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_select){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.iv_image){
+            v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.aiv_one){
+            v.setSelected(!v.isSelected());
         }
     }
 }

@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.util.TypedValue;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -42,6 +44,8 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         }
 
         updateText();
+        updateTextSize();
+        updateTextColor();
         updateDrawable();
     }
 
@@ -130,6 +134,11 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        attribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         attribute.startColor = startColor;
     }
@@ -189,6 +198,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         attribute.shape = shape;
     }
 
+
     @Override
     public void setSelected(boolean selected) {
         setSelected(selected, false);
@@ -197,13 +207,20 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
     /**
      * 如果需要更新背景调用这个方法
      *
+    /**
+     * 这个方法弃用 直接调用View.setSelected
      * @param selected
-     * @param updateBackground
+     * @param updateBackground 是否需要更新背景
      */
     public void setSelected(boolean selected, boolean updateBackground) {
         boolean change = selected != isSelected();
+    }
 
+    @Deprecated
+    public void setSelected(boolean selected,boolean updateBackground) {
         super.setSelected(selected);
+    }
+
 
         if (!change) {//没有发生过变化
 //            Log.i("ansen","选中状态没有发生过变化 不更新");
@@ -211,6 +228,19 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         }
 
         if (updateBackground) {
+    //view选中状态变更回调
+    protected void dispatchSetSelected(boolean selected){
+        super.dispatchSetSelected(selected);
+
+        if(selected==attribute.selected){//没有发生过变化 不需要更新
+            return ;
+        }
+
+//        Log.i("ansen","dispatchSetSelected selected:"+selected);
+        if(attribute.selectStartColor!=0||attribute.selectCenterColor!=0
+                ||attribute.selectEndColor!=0||attribute.selectStrokeColor!=0
+            ||attribute.selectSolidColor!=0){
+
             resetBackground();
         }
 
@@ -222,6 +252,8 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         }
 
         updateText();
+        updateTextColor();
+        updateTextSize();
         updateDrawable();
     }
 
@@ -231,9 +263,26 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         }
     }
 
-    public void updateDrawable() {
-        Drawable drawable = attribute.getDrawable();
-        if (drawable != null) {
+
+    public void updateTextColor(){
+        int textColor=attribute.getTextColor();
+        if(textColor!=0){
+            setTextColor(textColor);
+        }
+    }
+
+    public void updateTextSize(){
+        int textSize=attribute.getTextSize();
+        if(textSize!=0){
+            setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
+        }
+    }
+
+
+
+    public void updateDrawable(){
+        Drawable drawable=attribute.getDrawable();
+        if(drawable!=null){
             // 这一步必须要做,否则不会显示.
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
 
@@ -272,5 +321,26 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
     public void setSelectDrawable(Drawable selectDrawable) {
         attribute.selectDrawable = selectDrawable;
+    }
+
+    /**
+     * @param size 单位是sp
+     */
+    public void setTextSize(int size){
+        attribute.textSize=spToPixel(getContext(),size);
+    }
+
+    /**
+     * @param size 单位是sp
+     */
+    public void setSelectTextSize(int size){
+        attribute.selectTextSize=spToPixel(getContext(),size);
+    }
+
+    //将sp转换成pixel
+    private int spToPixel(Context context, float spValue) {
+        float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
+        int pixelValue=(int) (spValue * scaledDensity + 0.5f);
+        return pixelValue;
     }
 }

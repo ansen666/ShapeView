@@ -3,26 +3,31 @@ package com.ansen.shape;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ansen.shape.module.ShapeAttribute;
 import com.ansen.shape.util.ShapeUtil;
 
-public class AnsenFrameLayout extends FrameLayout implements IAnsenShapeView{
+/**
+ * @author Ansen
+ * @create time 2020/5/22
+ */
+public class AnsenConstraintLayout extends ConstraintLayout implements IAnsenShapeView{
     private ShapeAttribute shapeAttribute;
 
-    public AnsenFrameLayout(Context context) {
+    public AnsenConstraintLayout(Context context) {
         this(context,null);
     }
 
-    public AnsenFrameLayout(Context context, AttributeSet attrs){
+    public AnsenConstraintLayout(Context context, AttributeSet attrs){
         this(context, attrs,0);
     }
 
-    public AnsenFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AnsenConstraintLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        shapeAttribute=ShapeUtil.getShapeAttribute(context,attrs);
+        shapeAttribute= ShapeUtil.getShapeAttribute(context,attrs);
         ShapeUtil.setBackground(this,shapeAttribute);
     }
 
