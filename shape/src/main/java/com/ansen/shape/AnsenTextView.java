@@ -43,6 +43,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
         updateText();
         updateDrawable();
+        updateTextColor();
     }
 
     @Override
@@ -201,7 +202,6 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
     /**
      * 如果需要更新背景调用这个方法
-     *
      * @param selected
      * @param updateBackground
      */
@@ -221,13 +221,16 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
         attribute.selected = selected;
 
+        updateTextColor();
+        updateText();
+        updateDrawable();
+    }
+
+    private void updateTextColor(){
         int textColor = attribute.getTextColor();
         if (textColor != 0) {
             setTextColor(textColor);
         }
-
-        updateText();
-        updateDrawable();
     }
 
     public void updateText() {

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ansen.shape.AnsenFrameLayout;
+import com.ansen.shape.AnsenImageView;
 import com.ansen.shape.AnsenLinearLayout;
 import com.ansen.shape.AnsenTextView;
 import com.ansen.shape.AnsenView;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         atvBorderText.setOnClickListener(this);
 
         findViewById(R.id.aiv_one).setOnClickListener(this);
+        findViewById(R.id.tv_follow).setOnClickListener(this);
+        findViewById(R.id.tv_age_three).setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +124,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.aiv_one){
             v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_follow){
+            v.setSelected(!v.isSelected());
+            AnsenTextView tvFollow= (AnsenTextView) v;
+            tvFollow.resetBackground();//重绘背景
+        }else if(v.getId()==R.id.tv_age_three){
+            v.setSelected(!v.isSelected());
+            AnsenTextView tvAge= (AnsenTextView) v;
+            tvAge.resetBackground();//重绘背景
         }
     }
 }
