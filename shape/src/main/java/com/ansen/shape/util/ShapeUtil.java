@@ -74,7 +74,9 @@ public class ShapeUtil{
         shapeAttribute.borderGradient = typedArray.getBoolean(R.styleable.ShapeView_border_gradient, false);
         shapeAttribute.textGradient = typedArray.getBoolean(R.styleable.ShapeView_text_gradient, false);
 
-//        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor);
+        shapeAttribute.selectedResetBackground = typedArray.getBoolean(R.styleable.ShapeView_selected_reset_background, true);
+
+        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor+" selectedResetBackground:"+shapeAttribute.selectedResetBackground);
 
         typedArray.recycle();
         return shapeAttribute;

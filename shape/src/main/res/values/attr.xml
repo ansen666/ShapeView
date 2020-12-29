@@ -90,6 +90,9 @@
             <enum name="fitXY" value="3">完全展示，有可能变形</enum>
         </attr>
         <attr name="stroke_space" format="dimension">描边与图片间距</attr>
+
+        <!-- 设置View选中状态的时候是否重绘背景-->
+        <attr name="selected_reset_background" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="PriorityLinearLayout_Layout">

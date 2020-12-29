@@ -16,7 +16,6 @@
 
         app:stroke_color="#FE83C6"
         app:stroke_width="0.5dp"
-
         app:select_stroke_color="#69E3FE"
         app:select_stroke_width="0.5dp"
 

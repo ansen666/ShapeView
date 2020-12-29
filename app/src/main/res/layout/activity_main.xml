@@ -592,7 +592,6 @@
                 android:id="@+id/tv_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:drawablePadding="3dp"
                 android:gravity="center"
                 android:onClick="onClick"
@@ -603,13 +602,14 @@
                 android:text="年龄"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
-
+                app:selected_reset_background="false"
                 app:color_orientation="left_right"
                 app:corners_radius="15dp"
                 app:drawable_direction="left"
                 app:end_color="#69E3FE"
                 app:select_drawable="@mipmap/icon_sex_select_woman"
                 app:start_color="#FFFFFFFF"
+
                 app:unselect_drawable="@mipmap/icon_sex_select_male" />
 
             <!--            app:unselect_drawable="@mipmap/icon_sex_select_woman"-->

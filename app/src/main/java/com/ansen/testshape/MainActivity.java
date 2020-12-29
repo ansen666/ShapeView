@@ -126,12 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_follow){
             v.setSelected(!v.isSelected());
-            AnsenTextView tvFollow= (AnsenTextView) v;
-            tvFollow.resetBackground();//重绘背景
         }else if(v.getId()==R.id.tv_age_three){
             v.setSelected(!v.isSelected());
-            AnsenTextView tvAge= (AnsenTextView) v;
-            tvAge.resetBackground();//重绘背景
         }
     }
 }

@@ -29,5 +29,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(path: ':shape')
-//    implementation 'com.ansen.shape:shape:1.2.9'
+//    implementation 'com.ansen.shape:shape:1.3.0'
 }

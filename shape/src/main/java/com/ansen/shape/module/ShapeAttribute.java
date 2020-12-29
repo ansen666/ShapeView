@@ -66,6 +66,9 @@ public class ShapeAttribute {
     public boolean borderGradient=false;//边框渐变
     public boolean textGradient=false;//文字渐变
 
+    public boolean selectedResetBackground;//设置View选中状态的时候是否重绘背景
+
+
     public int scaleType;//图片才有的属性
 
     public int getSolidColor() {
@@ -164,6 +167,4 @@ public class ShapeAttribute {
         }
         return false;
     }
-
-
 }

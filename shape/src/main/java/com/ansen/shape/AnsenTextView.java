@@ -195,31 +195,29 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
         attribute.shape = shape;
     }
 
-    @Override
-    public void setSelected(boolean selected) {
-        setSelected(selected, false);
+    //view选中状态变更回调
+    protected void dispatchSetSelected(boolean selected){
+        super.dispatchSetSelected(selected);
+
+        if(selected==attribute.selected){//没有发生过变化 不需要更新
+            return ;
+        }
+        attribute.selected=selected;
+        setSelected();
+    }
+
+    public void setSelected(boolean selected,boolean updateBackground){
+        attribute.selectedResetBackground=updateBackground;
+        super.setSelected(selected);
     }
 
     /**
      * 如果需要更新背景调用这个方法
-     * @param selected
-     * @param updateBackground
      */
-    public void setSelected(boolean selected, boolean updateBackground) {
-        boolean change = selected != isSelected();
-
-        super.setSelected(selected);
-
-        if (!change) {//没有发生过变化
-//            Log.i("ansen","选中状态没有发生过变化 不更新");
-            return;
-        }
-
-        if (updateBackground) {
+    public void setSelected() {
+        if (attribute.selectedResetBackground) {
             resetBackground();
         }
-
-        attribute.selected = selected;
 
         updateTextColor();
         updateText();
@@ -280,5 +278,9 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
     public void setSelectDrawable(Drawable selectDrawable) {
         attribute.selectDrawable = selectDrawable;
+    }
+
+    public void setSelectedResetBackground(boolean selectedResetBackground) {
+        attribute.selectedResetBackground=selectedResetBackground;
     }
 }
