@@ -57,6 +57,8 @@ app:unselect_drawable="@mipmap/icon_sex_select_male" 图片未选中
 app:select_drawable="@mipmap/icon_sex_select_woman" 图片选中
 app:drawable_direction="right" 图片显示TextView方向，left：左边 top：上面 right：右边 bottom：底部
 
+app:selected_reset_background="true" 设置选中/未选中状态时是否更新背景 默认为true
+
 图片独有属性
 app:scale_type="top/center/bottom/fitXY" 显示类型
 app:stroke_space="0.5dp" 描边与图片间距
