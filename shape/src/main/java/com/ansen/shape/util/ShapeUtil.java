@@ -76,8 +76,7 @@ public class ShapeUtil{
 
         shapeAttribute.selectedResetBackground = typedArray.getBoolean(R.styleable.ShapeView_selected_reset_background, true);
 
-        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor+" selectedResetBackground:"+shapeAttribute.selectedResetBackground);
-
+//        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor+" selectedResetBackground:"+shapeAttribute.selectedResetBackground);
         typedArray.recycle();
         return shapeAttribute;
     }
