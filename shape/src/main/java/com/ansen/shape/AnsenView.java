@@ -103,5 +103,7 @@ public class AnsenView extends View implements IAnsenShapeView{
         shapeAttribute.shape=shape;
     }
 
-
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

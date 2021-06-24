@@ -106,7 +106,7 @@ public class ShapeUtil{
         } else {
             StateListDrawable sb = new StateListDrawable();
             
-            if (shapeAttribute.strokeDirection != 0) { // 标签效果不给支持
+            if (shapeAttribute.strokeDirection != 0) {//标签效果不给支持
                 Drawable strokeDrawable = getStrokeLayerDrawable(shapeAttribute);
                 sb.addState(new int[]{}, strokeDrawable);
             } else {

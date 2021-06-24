@@ -108,4 +108,8 @@ public class AnsenFrameLayout extends FrameLayout implements IAnsenShapeView{
         shapeAttribute.selected=selected;
         resetBackground();
     }
+
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

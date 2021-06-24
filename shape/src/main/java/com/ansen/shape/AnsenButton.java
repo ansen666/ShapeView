@@ -102,4 +102,7 @@ public class AnsenButton extends AppCompatButton implements IAnsenShapeView{
         shapeAttribute.shape=shape;
     }
 
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

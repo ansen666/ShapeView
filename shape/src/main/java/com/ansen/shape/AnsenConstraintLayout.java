@@ -113,4 +113,8 @@ public class AnsenConstraintLayout extends ConstraintLayout implements IAnsenSha
         shapeAttribute.selected=selected;
         resetBackground();
     }
+
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

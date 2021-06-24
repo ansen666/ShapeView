@@ -738,5 +738,21 @@
                 app:solid_color="@color/white_normal"
                 app:unselect_drawable="@mipmap/ic_launcher" />
         </LinearLayout>
+
+        <com.ansen.shape.AnsenTextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_unread_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="7dp"
+            android:paddingTop="2dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="2dp"
+            android:text="99+"
+            android:textColor="@color/white_normal"
+            android:textSize="10sp"
+            app:corners_radius="200dp"
+            app:solid_color="#FF4B51" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

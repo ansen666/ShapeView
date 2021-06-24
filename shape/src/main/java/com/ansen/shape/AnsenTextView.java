@@ -283,4 +283,8 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
     public void setSelectedResetBackground(boolean selectedResetBackground) {
         attribute.selectedResetBackground=selectedResetBackground;
     }
+
+    public ShapeAttribute getShape() {
+        return attribute;
+    }
 }

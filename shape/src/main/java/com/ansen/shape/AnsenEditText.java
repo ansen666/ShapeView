@@ -103,4 +103,7 @@ public class AnsenEditText extends AppCompatEditText implements IAnsenShapeView{
         shapeAttribute.shape=shape;
     }
 
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

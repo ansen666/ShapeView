@@ -101,6 +101,10 @@ public class AnsenRelativeLayout extends RelativeLayout implements IAnsenShapeVi
         shapeAttribute.shape=shape;
     }
 
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
+
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
