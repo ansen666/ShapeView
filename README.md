@@ -1,10 +1,27 @@
 # ShapeView
 使用自定义属性替代项目中的shape文件，可以给View设置背景色、弧度、背景渐变、边框、边框颜色(可以单独指定4条边)、渐变方向、按下效果等
 
-### 在线依赖
+### Jcenter在线依赖（默认）不再更新
 ```
 implementation 'com.ansen.shape:shape:1.3.1'
 ```
+
+### JitPack在线依赖（因为Jcenter不在支持开发者更新项目）
+在你的项目跟目录的build.gradle文件的增加依赖
+```
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
+```
+
+使用跟Jcenter在线依赖一样的,在moudle里面依赖
+```
+implementation 'com.github.ansen666:ShapeView:1.3.2'
+```
+
 
 ### 属性使用
 ```
