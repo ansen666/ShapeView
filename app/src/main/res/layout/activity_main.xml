@@ -739,20 +739,43 @@
                 app:unselect_drawable="@mipmap/ic_launcher" />
         </LinearLayout>
 
-        <com.ansen.shape.AnsenTextView
+        <LinearLayout
             android:layout_marginLeft="10dp"
-            android:id="@+id/tv_unread_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingLeft="7dp"
-            android:paddingTop="2dp"
-            android:paddingRight="7dp"
-            android:paddingBottom="2dp"
-            android:text="99+"
-            android:textColor="@color/white_normal"
-            android:textSize="10sp"
-            app:corners_radius="200dp"
-            app:solid_color="#FF4B51" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.ansen.shape.AnsenTextView
+                android:id="@+id/tv_unread_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="7dp"
+                android:paddingTop="2dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="2dp"
+                android:text="99+"
+                android:textColor="@color/white_normal"
+                android:textSize="10sp"
+                app:corners_radius="200dp"
+                app:solid_color="#FF4B51" />
+
+            <com.ansen.shape.AnsenEditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="6dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="6dp"
+                android:hint="请输入内容"
+                android:minWidth="75dp"
+                android:textColorHint="#B2B2B2"
+                android:textColor="#333333"
+                android:textSize="12sp"
+                app:corners_radius="200dp"
+                app:stroke_color="#CECECE"
+                app:stroke_width="1dp"
+                app:dash_width="4dp"
+                app:dash_gap="2dp"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -31,6 +31,9 @@
         <attr name="stroke_color" format="color" /><!--边框颜色-->
         <attr name="stroke_width" format="dimension" /><!--边框宽度-->
 
+        <attr name="dash_width" format="dimension" /><!-- 每一根虚线的长度-->
+        <attr name="dash_gap" format="dimension" /><!--虚线边框间隙-->
+
         <attr name="select_stroke_color" format="color" />
         <attr name="select_stroke_width" format="dimension" /><!--选中边框宽度-->
 

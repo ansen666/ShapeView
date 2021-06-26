@@ -5,8 +5,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
-
 import com.ansen.shape.module.ShapeAttribute;
 import com.ansen.shape.util.ShapeUtil;
 

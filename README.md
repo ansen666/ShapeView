@@ -15,6 +15,10 @@ app:stroke_color="#00ff00" 边框颜色
 app:stroke_width="2dp"  边框宽度
 app:stroke_direction="left|top|right|bottom" 需要显示的边框方向 默认全边框（不支持选中状态）
 
+如果是虚线边框增加以下两个属性:
+app:dash_width="4dp" 虚线边框的长度
+app:dash_gap="2dp" 虚线边框两个线之间的间隙
+
 app:top_left_radius="15dp" 左上弧度
 app:top_right_radius="15dp" 右上弧度
 app:bottom_left_radius="15dp" 左下弧度
