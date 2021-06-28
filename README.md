@@ -19,7 +19,7 @@ allprojects {
 
 使用跟Jcenter在线依赖一样的,在moudle里面依赖
 ```
-implementation 'com.github.ansen666:ShapeView:1.3.2'
+implementation 'com.github.ansen666:ShapeView:1.3.4'
 ```
 
 
