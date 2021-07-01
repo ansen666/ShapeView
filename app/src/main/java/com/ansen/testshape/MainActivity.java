@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AnsenTextView tvDynamicAlteration;
     private boolean change=false;
 
-    private AnsenTextView tvMale,tvWoman,tvTag,atvBorderText;
+    private AnsenTextView tvMale,tvWoman,tvTag,atvBorderText,tvSelectSex;
     private AnsenLinearLayout llGoddess,llOrdinaryGirls;
 
     @Override
@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         atvBorderText=findViewById(R.id.atv_border_text);
         atvBorderText.setOnClickListener(this);
+
+        tvSelectSex=findViewById(R.id.tv_select_sex);
+        tvSelectSex.setShowDrawable(false);
 
         findViewById(R.id.aiv_one).setOnClickListener(this);
         findViewById(R.id.tv_follow).setOnClickListener(this);
@@ -129,6 +132,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setSelected(!v.isSelected());
         }else if(v.getId()==R.id.tv_age_three){
             v.setSelected(!v.isSelected());
+        }else if(v.getId()==R.id.tv_select_sex){
+            tvSelectSex.setShowDrawable(true);
+            tvSelectSex.setSelected(!tvSelectSex.isSelected());
         }
     }
 }

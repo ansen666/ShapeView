@@ -23,6 +23,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
     private LinearGradient shader;
     private Paint borderPaint;
+    private boolean showDrawable=true;
 
     public AnsenTextView(Context context) {
         this(context, null);
@@ -239,7 +240,7 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
 
     public void updateDrawable() {
         Drawable drawable = attribute.getDrawable();
-        if (drawable != null) {
+        if (drawable != null && showDrawable) {
             // 这一步必须要做,否则不会显示.
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
 
@@ -252,6 +253,19 @@ public class AnsenTextView extends AppCompatTextView implements IAnsenShapeView 
             } else if (attribute.drawableDirection == ShapeConstant.TextView.BOTTOM) {
                 setCompoundDrawables(null, null, null, drawable);
             }
+        }
+    }
+
+    /**
+     * 是否显示Drawable，默认为true
+     * @param showDrawable
+     */
+    public void setShowDrawable(boolean showDrawable){
+        this.showDrawable=showDrawable;
+        if(showDrawable){//如果设置成true 直接调用updateDrawable方法显示图片
+            updateDrawable();
+        }else{
+            setCompoundDrawables(null, null, null, null);
         }
     }
 
