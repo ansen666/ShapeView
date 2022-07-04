@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 
 /**
  * 自定义属性
+ *
  * @author Ansen
  * @create time 2019-10-28
  */
@@ -11,7 +12,7 @@ public class ShapeAttribute {
     public ShapeAttribute(){
     }
 
-    public boolean selected=false;//是否选中
+    public boolean selected = false;//是否选中
 
     public int solidColor;//填充颜色
     public int selectSolidColor;//选中填充色
@@ -64,10 +65,10 @@ public class ShapeAttribute {
     public Drawable selectDrawable;
     public int drawableDirection;//图标方向
 
-    public boolean pressed=false;
+    public boolean pressed = false;
 
-    public boolean borderGradient=false;//边框渐变
-    public boolean textGradient=false;//文字渐变
+    public boolean borderGradient = false;//边框渐变
+    public boolean textGradient = false;//文字渐变
 
     public boolean selectedResetBackground;//设置View选中状态的时候是否重绘背景
 
@@ -75,65 +76,65 @@ public class ShapeAttribute {
     public int scaleType;//图片才有的属性
 
     public int getSolidColor() {
-        if(pressed){//优先返回按压颜色
+        if (pressed) {//优先返回按压颜色
             return pressedSolidColor;
         }
 
-        if(selected){
+        if (selected) {
             return selectSolidColor;
         }
         return solidColor;
     }
 
     public int getStartColor() {
-        if(pressed){//优先返回按压颜色
+        if (pressed) {//优先返回按压颜色
             return pressedStartColor;
         }
 
-        if(selected){
+        if (selected) {
             return selectStartColor;
         }
         return startColor;
     }
 
     public int getCenterColor() {
-        if(pressed){//优先返回按压颜色
+        if (pressed) {//优先返回按压颜色
             return pressedCenterColor;
         }
 
-        if(selected){
+        if (selected) {
             return selectCenterColor;
         }
         return centerColor;
     }
 
     public int getEndColor() {
-        if(pressed){//优先返回按压颜色
+        if (pressed) {//优先返回按压颜色
             return pressedEndColor;
         }
 
-        if(selected){
+        if (selected) {
             return selectEndColor;
         }
         return endColor;
     }
 
     public int getStrokeColor() {
-        if(selected){
+        if (selected) {
             return selectStrokeColor;
         }
         return strokeColor;
     }
 
     public float getStrokeWidth() {
-        if(selected){
+        if (selected) {
             return selectStrokeWidth;
         }
         return strokeWidth;
     }
 
     public int getTextColor() {
-        if(selected){
+        if (selected) {
             return selectTextColor;
         }
         return textColor;
@@ -160,14 +161,14 @@ public class ShapeAttribute {
     }
 
     public String getText() {
-        if(selected){
+        if (selected) {
             return selectText;
         }
         return text;
     }
 
     public Drawable getDrawable() {
-        if(selected){
+        if (selected) {
             return selectDrawable;
         }
         return unselectDrawable;
@@ -180,12 +181,19 @@ public class ShapeAttribute {
     /**
      * @return true:有按下效果 false:没有按下效果
      */
-    public boolean isPressed(){
-        if(pressedSolidColor!=0||pressedStartColor!=0||pressedEndColor!=0){
+    public boolean isPressed() {
+        if (pressedSolidColor != 0 || pressedStartColor != 0 || pressedEndColor != 0) {
             return true;
         }
         return false;
     }
 
 
+    /**
+     * 设置 是否支持渐变，满足灵活使用
+     * @param textGradient
+     */
+    public void setTextGradient(boolean textGradient) {
+        this.textGradient = textGradient;
+    }
 }
