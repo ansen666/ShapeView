@@ -9,8 +9,7 @@ import android.graphics.drawable.Drawable;
  * @create time 2019-10-28
  */
 public class ShapeAttribute {
-    public ShapeAttribute() {
-
+    public ShapeAttribute(){
     }
 
     public boolean selected = false;//是否选中
@@ -39,6 +38,11 @@ public class ShapeAttribute {
     public int selectStrokeColor;//选中边框颜色
 
     public float strokeWidth;//边框宽度
+    public float strokeSpace;//描边与图片间距
+
+    public float dashWidth;//虚线边框宽度
+    public float dashGap;//虚线边框间隙
+
     public float selectStrokeWidth;//选中边框宽度
     public int strokeDirection;//那个方向需要边框 默认全部
 
@@ -53,8 +57,9 @@ public class ShapeAttribute {
     //TextView/EditView属性
     public String text;
     public String selectText;
-    public int textColor;
-    public int selectTextColor;
+
+    public int textColor,selectTextColor;
+    public int textSize,selectTextSize;//文字大小
 
     public Drawable unselectDrawable;
     public Drawable selectDrawable;
@@ -64,6 +69,11 @@ public class ShapeAttribute {
 
     public boolean borderGradient = false;//边框渐变
     public boolean textGradient = false;//文字渐变
+
+    public boolean selectedResetBackground;//设置View选中状态的时候是否重绘背景
+
+
+    public int scaleType;//图片才有的属性
 
     public int getSolidColor() {
         if (pressed) {//优先返回按压颜色
@@ -130,6 +140,26 @@ public class ShapeAttribute {
         return textColor;
     }
 
+    public float getDashWidth() {
+        return dashWidth;
+    }
+
+    public void setDashWidth(float dashWidth) {
+        this.dashWidth = dashWidth;
+    }
+
+    public float getDashGap() {
+        return dashGap;
+    }
+
+    public void setDashGap(float dashGap) {
+        this.dashGap = dashGap;
+    }
+
+    public int getTextSize() {
+        return selected?selectTextSize:textSize;
+    }
+
     public String getText() {
         if (selected) {
             return selectText;
@@ -158,9 +188,9 @@ public class ShapeAttribute {
         return false;
     }
 
+
     /**
      * 设置 是否支持渐变，满足灵活使用
-     *
      * @param textGradient
      */
     public void setTextGradient(boolean textGradient) {

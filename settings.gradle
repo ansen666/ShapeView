@@ -1,2 +1,2 @@
 include ':app', ':shape'
-rootProject.name='TestShape'
+rootProject.name='ShapeView'

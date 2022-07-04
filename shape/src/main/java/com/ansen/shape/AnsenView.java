@@ -39,6 +39,11 @@ public class AnsenView extends View implements IAnsenShapeView{
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        shapeAttribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         shapeAttribute.startColor=startColor;
     }
@@ -98,5 +103,7 @@ public class AnsenView extends View implements IAnsenShapeView{
         shapeAttribute.shape=shape;
     }
 
-
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
+    }
 }

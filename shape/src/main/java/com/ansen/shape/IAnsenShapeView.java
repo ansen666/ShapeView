@@ -2,6 +2,8 @@ package com.ansen.shape;
 
 import android.graphics.drawable.GradientDrawable;
 
+import com.ansen.shape.module.ShapeAttribute;
+
 /**
  * @author Ansen
  * @create time 2019-10-28
@@ -13,6 +15,8 @@ public interface IAnsenShapeView {
     void resetBackground();
 
     void setSolidColor(int solidColor);
+
+    void setPressedSolidColor(int pressedSolidColor);
 
     void setStartColor(int startColor);
 
@@ -41,4 +45,6 @@ public interface IAnsenShapeView {
     void setBottomRightRadius(float bottomRightRadius);
 
     void setShape(int shape);
+
+    ShapeAttribute getShape();
 }

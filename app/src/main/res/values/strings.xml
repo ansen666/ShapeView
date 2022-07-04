@@ -2,4 +2,15 @@
     <string name="app_name">TestShape</string>
     <string name="goddess">高颜值女神</string>
     <string name="ordinary_girls">普通女生</string>
+
+
+    <string name="privacy_policy_content">
+	    <![CDATA[
+	    登录即代表你同意
+	    <a href="/useragreement.html">
+	    <span style="color:red">《用户协议》</span></a>
+	    和<a href="/privacypolicytwo.html">
+	    <span style="color:red">《隐私政策》</span></a>
+	    ]]>
+	    </string>
 </resources>

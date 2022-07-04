@@ -37,6 +37,11 @@ public class AnsenLinearLayout extends LinearLayout implements IAnsenShapeView{
     }
 
     @Override
+    public void setPressedSolidColor(int pressedSolidColor) {
+        shapeAttribute.pressedSolidColor=pressedSolidColor;
+    }
+
+    @Override
     public void setStartColor(int startColor) {
         shapeAttribute.startColor=startColor;
     }
@@ -97,10 +102,14 @@ public class AnsenLinearLayout extends LinearLayout implements IAnsenShapeView{
     }
 
     @Override
-    public void setSelected(boolean selected) {
-        super.setSelected(selected);
+    public void dispatchSetSelected(boolean selected) {
+        super.dispatchSetSelected(selected);
 
         shapeAttribute.selected=selected;
         resetBackground();
+    }
+
+    public ShapeAttribute getShape() {
+        return shapeAttribute;
     }
 }

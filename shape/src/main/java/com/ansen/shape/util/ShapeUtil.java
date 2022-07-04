@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,7 @@ import android.view.View;
 import com.ansen.shape.R;
 import com.ansen.shape.module.ShapeAttribute;
 
-public class ShapeUtil {
+public class ShapeUtil{
     public static ShapeAttribute getShapeAttribute(Context context, AttributeSet attrs) {
         ShapeAttribute shapeAttribute = new ShapeAttribute();
 
@@ -45,6 +44,9 @@ public class ShapeUtil {
         shapeAttribute.selectStrokeWidth = typedArray.getDimension(R.styleable.ShapeView_select_stroke_width, 0.0F);
         shapeAttribute.strokeDirection = typedArray.getInt(R.styleable.ShapeView_stroke_direction, 0);//默认为0 显示全边框
 
+        shapeAttribute.dashWidth = typedArray.getDimension(R.styleable.ShapeView_dash_width, 0.0F);
+        shapeAttribute.dashGap = typedArray.getDimension(R.styleable.ShapeView_dash_gap, 0.0F);
+
         shapeAttribute.cornersRadius = typedArray.getDimension(R.styleable.ShapeView_corners_radius, 0.0F);
         shapeAttribute.topLeftRadius = typedArray.getDimension(R.styleable.ShapeView_top_left_radius, 0.0F);
         shapeAttribute.topRightRadius = typedArray.getDimension(R.styleable.ShapeView_top_right_radius, 0.0F);
@@ -52,6 +54,9 @@ public class ShapeUtil {
         shapeAttribute.bottomRightRadius = typedArray.getDimension(R.styleable.ShapeView_bottom_right_radius, 0.0F);
 
         shapeAttribute.shape = typedArray.getInt(R.styleable.ShapeView_shape_view, 0);
+        shapeAttribute.scaleType=typedArray.getInt(R.styleable.ShapeView_scale_type, ShapeConstant.ScaleType.TOP);
+
+        shapeAttribute.strokeSpace=typedArray.getDimension(R.styleable.ShapeView_stroke_space, 0.0F);
 
         //TextView/EditView属性
         shapeAttribute.text = typedArray.getString(R.styleable.ShapeView_text);
@@ -59,14 +64,22 @@ public class ShapeUtil {
 
         shapeAttribute.textColor = typedArray.getColor(R.styleable.ShapeView_text_color, Color.TRANSPARENT);
         shapeAttribute.selectTextColor = typedArray.getColor(R.styleable.ShapeView_select_text_color, Color.TRANSPARENT);
+
+        shapeAttribute.textSize=typedArray.getDimensionPixelSize(R.styleable.ShapeView_text_size,0);
+        shapeAttribute.selectTextSize=typedArray.getDimensionPixelSize(R.styleable.ShapeView_select_text_size,0);
+//        Log.i("ansen","size:"+shapeAttribute.textSize+" selectTextSize:"+shapeAttribute.selectTextSize);
+
         shapeAttribute.unselectDrawable = typedArray.getDrawable(R.styleable.ShapeView_unselect_drawable);
         shapeAttribute.selectDrawable = typedArray.getDrawable(R.styleable.ShapeView_select_drawable);
+//        Log.i("ansen","selectDrawable:"+shapeAttribute.selectDrawable);
         shapeAttribute.drawableDirection = typedArray.getInt(R.styleable.ShapeView_drawable_direction, 0);//默认为0 显示左边
 
         shapeAttribute.borderGradient = typedArray.getBoolean(R.styleable.ShapeView_border_gradient, false);
         shapeAttribute.textGradient = typedArray.getBoolean(R.styleable.ShapeView_text_gradient, false);
-//        Log.i("ansen","unselectDrawable:"+shapeAttribute.unselectDrawable);
 
+        shapeAttribute.selectedResetBackground = typedArray.getBoolean(R.styleable.ShapeView_selected_reset_background, true);
+
+//        Log.i("ansen","startColor:"+shapeAttribute.startColor+" selectStartColor"+shapeAttribute.selectStartColor+" selectedResetBackground:"+shapeAttribute.selectedResetBackground);
         typedArray.recycle();
         return shapeAttribute;
     }
@@ -96,14 +109,13 @@ public class ShapeUtil {
         } else {
             StateListDrawable sb = new StateListDrawable();
             
-            if (shapeAttribute.strokeDirection != 0) { // 标签效果不给支持
+            if (shapeAttribute.strokeDirection != 0) {//标签效果不给支持
                 Drawable strokeDrawable = getStrokeLayerDrawable(shapeAttribute);
                 sb.addState(new int[]{}, strokeDrawable);
             } else {
                 GradientDrawable normal = getBaseGradientDrawable(shapeAttribute);
                 sb.addState(new int[]{}, normal);
             }
-
             view.setBackground(sb);
         }
     }
@@ -122,7 +134,6 @@ public class ShapeUtil {
         stateListDrawable.addState(new int[]{}, layerDrawable);
         return stateListDrawable;
     }
-
 
     private static GradientDrawable getBaseGradientDrawable(ShapeAttribute shapeAttribute) {
         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -146,8 +157,14 @@ public class ShapeUtil {
         int strokeColor = shapeAttribute.getStrokeColor();
         float strokeWidth = shapeAttribute.getStrokeWidth();
 
+        float dashWidth=shapeAttribute.getDashWidth(),dashGap=shapeAttribute.getDashGap();
+
         if (strokeColor != 0 && strokeWidth != 0) {//设置边框
-            gradientDrawable.setStroke((int) strokeWidth, strokeColor);
+            if(dashWidth!=0&&dashGap!=0){
+                gradientDrawable.setStroke((int) strokeWidth, strokeColor,dashWidth,dashGap);
+            }else{
+                gradientDrawable.setStroke((int) strokeWidth, strokeColor);
+            }
         }
 
         gradientDrawable.setShape(shapeAttribute.shape);//设置形状(矩形、椭圆形、一条线、环形)
