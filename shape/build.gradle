@@ -4,7 +4,7 @@ ext {
     artifact = 'com.ansen.shape'
     libraryName = 'ShapeView'
     libraryDescription = '使用自定义属性替代项目中的shape文件，可以给View设置背景色、弧度、背景渐变、边框、边框颜色、渐变方向、按压变色等'
-    libraryVersion = '1.3.2'
+    libraryVersion = '1.3.3'
 }
 
 android {
