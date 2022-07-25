@@ -332,4 +332,8 @@ public class AnsenImageView extends AppCompatImageView {
     public Paint getBorderPaint() {
         return borderPaint;
     }
+
+    public ShapeAttribute getAttribute() {
+        return attribute;
+    }
 }
