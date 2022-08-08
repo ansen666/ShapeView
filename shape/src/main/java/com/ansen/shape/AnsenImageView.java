@@ -333,6 +333,14 @@ public class AnsenImageView extends AppCompatImageView {
         return borderPaint;
     }
 
+    public void setUnselectDrawable(int resId) {
+        attribute.unselectDrawable = getContext().getResources().getDrawable(resId);
+    }
+
+    public void setSelectDrawable(int resId) {
+        attribute.selectDrawable = getContext().getResources().getDrawable(resId);
+    }
+
     public ShapeAttribute getAttribute() {
         return attribute;
     }
